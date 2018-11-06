@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>首页</title>
+  <link rel="stylesheet" href="./lib/fontawesome/css/font-awesome.css">
+  <link rel="stylesheet" href="./lib/mui/css/mui.css">
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+  <header class="pyg_search">
+    <div class="mui-input-row mui-search">
+      <input type="search" class="mui-input-clear" placeholder="">
+    </div>
+  </header>
+  <div class="pyg_view">
+    <!-- 轮播图部分 -->
+    <div class="pyg_silder">
+
+    </div>
+    <!-- 导航 -->
+    <div class="pyg_nav">
+
+    </div>
+    <!-- 商品列表 -->
+    <div class="pyg_goodslist">
+
+    </div>
+  </div>
+  <footer class="
+          pyg_footerBar">
+    <a class="active" href="javascript:;">
+      <span class="fa fa-home"></span>
+      <div>首页</div>
+    </a>
+    <a href="javascript:;">
+      <span class="fa fa-list-ul"></span>
+      <div>分类</div>
+    </a>
+    <a href="javascript:;">
+      <span class="fa fa-shopping-cart"></span>
+      <div>购物车</div>
+    </a>
+    <a href="javascript:;">
+      <span class="fa fa-user-circle-o"></span>
+      <div>我的</div>
+    </a>
+  </footer>
+</body>
+<!-- 模板引擎 -->
+<!-- 轮播图模板引擎 -->
+<script type="text/template" id="sliderTpl">
+  <div class="mui-slider">
+    <!-- 图片 -->
+    <div class="mui-slider-group mui-slider-loop">
+      <!--支持循环，需要重复图片节点-->
+      <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="{{data[data.length-1].image_src}}" /></a></div>
+      {{each data val1 key}}
+      <div class="mui-slider-item"><a href="#"><img src="{{val1.image_src}}" /></a></div>
+      {{/each}}
+      <!--支持循环，需要重复图片节点-->
+      <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="{{data[0].image_src}}" /></a></div>
+    </div>
+    <!-- 索引器 -->
+    <div class="mui-slider-indicator">
+      {{each data val2 key}}
+      {{if key==0}}
+      <div class="mui-indicator mui-active"></div>
+      {{else}}
+      <div class="mui-indicator"></div>
+      {{/if}}
+      {{/each}}
+    </div>
+  </div>
+  
+</script>
+<!-- 轮播图模板引擎 -->
+<!-- 导航模板引擎 -->
+<script type="text/template" id="navTpl">
+  {{each data val key}}
+  <a href="javascript:;"><img src="{{val.image_src}}" alt=""></a>
+  {{/each}}
+</script>
+<!-- 导航模板引擎 -->
+<!-- 商品列表模板 -->
+<script type="text/template" id="goodslistTpl">
+  {{each data val1}}
+  <div class="goodslist_wrap">
+      <div class="goodslist_title">
+        <img src="{{val1.group_img}}" alt="">
+      </div>
+      <div class="goodslist_content">
+        <ul>
+          {{each val1.goods val2}}
+          <li>
+            <a href="javascript:;">
+              <div class="goodslist_img">
+                <img src="{{val2.goods_small_logo}}"
+                  alt="">
+              </div>
+              <div class="goodslist_name">
+                {{val2.goods_name}}
+              </div>
+              <div class="goodslist_price">￥{{val2.goods_price}}</div>
+            </a>
+            <a class="mui-btn mui-btn-primary mui-btn-outlined" href="javascript:;">找相似</a>
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+    {{/each}}
+</script>
+<!-- 商品列表模板 -->
+<!-- 模板引擎 -->
+<!-- 引用zepto mui 插件的js文件 -->
+<script src="./lib/zepto/zepto.js"></script>
+<script src="./lib/mui/js/mui.js"></script>
+<script src="./lib/arttemplate/template-web.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/index.js"></script>
+
+</html>

@@ -1,0 +1,144 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-size: 16px;
+  padding-top: 45px;
+  padding-bottom: 53px;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+.pyg_search {
+  height: 45px;
+  width: 100%;
+  padding: 5px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  -webkit-box-shadow: 0 1px 6px #ccc;
+          box-shadow: 0 1px 6px #ccc;
+  background-color: #fff;
+}
+
+.pyg_view {
+  height: 100%;
+  overflow: scroll;
+}
+
+.pyg_footerBar {
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  padding-top: 3px;
+  -webkit-box-shadow: 0 -1px 1px #ccc;
+          box-shadow: 0 -1px 1px #ccc;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 10;
+}
+
+.pyg_footerBar a {
+  width: 25%;
+  text-align: center;
+  color: #383838;
+}
+
+.pyg_footerBar a span {
+  font-size: 24px;
+}
+
+.pyg_footerBar a div {
+  font-size: 14px;
+}
+
+.pyg_footerBar .active {
+  color: #007aff;
+}
+
+.pyg_view .pyg_silder .mui-slider .mui-indicator {
+  background-color: rgba(255, 255, 255, 0);
+  -webkit-box-shadow: 0 0 1 1 white;
+          box-shadow: 0 0 1 1 white;
+}
+
+.pyg_view .pyg_silder .mui-slider .mui-active {
+  background-color: #fff;
+}
+
+.pyg_view .pyg_nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 15px 10px;
+}
+
+.pyg_view .pyg_nav a {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.pyg_view .pyg_nav a img {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.pyg_view .pyg_goodslist {
+  padding: 0 5px;
+}
+
+.pyg_view .pyg_goodslist .goodslist_wrap .goodslist_content ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.pyg_view .pyg_goodslist .goodslist_wrap .goodslist_content ul li {
+  width: 49%;
+  margin-top: 5px;
+  background-color: #fff;
+  padding: 3px;
+}
+
+.pyg_view .pyg_goodslist .goodslist_wrap .goodslist_content ul li a {
+  color: #000000;
+}
+
+.pyg_view .pyg_goodslist .goodslist_wrap .goodslist_content ul li a .goodslist_name {
+  margin-top: 3px;
+  font-size: 14px;
+  height: 42px;
+  overflow: hidden;
+}
+
+.pyg_view .pyg_goodslist .goodslist_wrap .goodslist_content ul li a .goodslist_price {
+  font-size: 18px;
+  color: #ec0000;
+}
+
+.pyg_view .pyg_goodslist .goodslist_wrap .goodslist_content ul li .mui-btn {
+  width: 70%;
+  color: #007aff;
+  display: block;
+  margin: 5px auto;
+}
+/*# sourceMappingURL=index.css.map */

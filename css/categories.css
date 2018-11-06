@@ -1,0 +1,146 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-size: 16px;
+  padding-top: 45px;
+  padding-bottom: 53px;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+.pyg_search {
+  height: 45px;
+  width: 100%;
+  padding: 5px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  -webkit-box-shadow: 0 1px 6px #ccc;
+          box-shadow: 0 1px 6px #ccc;
+  background-color: #fff;
+}
+
+.pyg_view {
+  height: 100%;
+  overflow: scroll;
+}
+
+.pyg_footerBar {
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  padding-top: 3px;
+  -webkit-box-shadow: 0 -1px 1px #ccc;
+          box-shadow: 0 -1px 1px #ccc;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 10;
+}
+
+.pyg_footerBar a {
+  width: 25%;
+  text-align: center;
+  color: #383838;
+}
+
+.pyg_footerBar a span {
+  font-size: 24px;
+}
+
+.pyg_footerBar a div {
+  font-size: 14px;
+}
+
+.pyg_footerBar .active {
+  color: #007aff;
+}
+
+.pyg_view {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+
+.pyg_categories_left {
+  width: .8rem;
+  overflow: scroll;
+}
+
+.pyg_categories_left .cate_menu {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.pyg_categories_left .cate_menu li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: .4rem;
+  font-size: .14rem;
+}
+
+.pyg_categories_left .cate_menu .active {
+  background-color: #fff;
+  border-left: 4px solid #007aff;
+}
+
+.pyg_categories_right {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  overflow: scroll;
+  height: 100%;
+  background-color: #fff;
+}
+
+.pyg_categories_right .cate_group_wrap .cate_group .cate_group_title {
+  padding: 10px 17px;
+  font-size: .14rem;
+  color: #007aff;
+}
+
+.pyg_categories_right .cate_group_wrap .cate_group .cate_group_content ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.pyg_categories_right .cate_group_wrap .cate_group .cate_group_content ul li {
+  width: 33.33%;
+  text-align: center;
+}
+
+.pyg_categories_right .cate_group_wrap .cate_group .cate_group_content ul li a {
+  font-size: .14rem;
+  color: #383838;
+}
+
+.pyg_categories_right .cate_group_wrap .cate_group .cate_group_content ul li a img {
+  width: 70%;
+  margin: 0 auto;
+}
+/*# sourceMappingURL=categories.css.map */

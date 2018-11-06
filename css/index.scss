@@ -1,0 +1,86 @@
+// 引入公共样式
+@import '_common';
+
+// 中间内容部分
+.pyg_view {
+
+  // 轮播图
+  .pyg_silder {
+    .mui-slider {
+      .mui-indicator {
+        background-color: rgba(255, 255, 255, 0);
+        box-shadow: 0 0 1 1 rgb(255, 255, 255);
+
+      }
+
+      .mui-active {
+        background-color: #fff;
+      }
+    }
+  }
+
+  // 导航
+  .pyg_nav {
+    display: flex;
+    padding: 15px 10px;
+
+    a {
+      flex: 1;
+
+      img {
+        width: 70%;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  // 商品列表
+  .pyg_goodslist {
+    padding: 0 5px;
+
+    .goodslist_wrap {
+
+      // .goodslist_title {}
+
+      .goodslist_content {
+
+        ul {
+          @include ul_reset();
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+
+          li {
+            width: 49%;
+            margin-top: 5px;
+            background-color: #fff;
+            padding: 3px;
+
+            a {
+              color: #000000;
+
+              .goodslist_name {
+                margin-top: 3px;
+                font-size: 14px;
+                height: 42px;
+                overflow: hidden;
+              }
+
+              .goodslist_price {
+                font-size: 18px;
+                color: #ec0000;
+              }
+            }
+
+            .mui-btn {
+              width: 70%;
+              color: #007aff;
+              display: block;
+              margin: 5px auto;
+            }
+          }
+        }
+      }
+    }
+  }
+}

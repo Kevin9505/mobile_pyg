@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>分类</title>
+  <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+  <link rel="stylesheet" href="../lib/mui/css/mui.css">
+  <link rel="stylesheet" href="../css/categories.css">
+</head>
+
+<body>
+  <!-- 头部搜索框 -->
+  <header class="pyg_search">
+    <div class="mui-input-row mui-search">
+      <input type="search" class="mui-input-clear" placeholder="">
+    </div>
+  </header>
+  <!-- 主要内容区 -->
+  <div class="pyg_view">
+    <div class="pyg_categories_left wrapper">
+      <ul class="cate_menu">
+        <li class="active">1</li>
+        <li>1</li>
+      </ul>
+    </div>
+    <div class="pyg_categories_right">
+      <div class="cate_group_wrap">
+        <!-- <div class="cate_group">
+          <div class="cate_group_title"></div>
+          <div class="cate_group_content">
+            <ul>
+              <li>
+                <a href="javascript:;">
+                  <img src="" alt="">
+                  <div class="cate_name"></div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <!-- 底部导航条 -->
+  <footer class="
+          pyg_footerBar">
+    <a href="javascript:;">
+      <span class="fa fa-home"></span>
+      <div>首页</div>
+    </a>
+    <a class="active" href="javascript:;">
+      <span class="fa fa-list-ul"></span>
+      <div>分类</div>
+    </a>
+    <a href="javascript:;">
+      <span class="fa fa-shopping-cart"></span>
+      <div>购物车</div>
+    </a>
+    <a href="javascript:;">
+      <span class="fa fa-user-circle-o"></span>
+      <div>我的</div>
+    </a>
+  </footer>
+</body>
+<!-- 模板引擎 -->
+<!-- 左侧分类模板 -->
+<script type="text/template" id="LeftCateTpl">
+  {{each data val key}}
+  {{if key==0}}
+  <li class="active">{{val.cat_name}}</li>
+  {{/if}}
+  {{if key != 0}}
+  <li>{{val.cat_name}}</li>
+  {{/if}}
+  {{/each}}
+</script>
+<!-- 分类模板 -->
+<!-- 右侧商品模板 -->
+<script type="text/template" id="RightGoodTpl">
+  {{each data val key}}
+  <div class="cate_group">
+    <div class="cate_group_title">{{val.cat_name}}</div>
+    <div class="cate_group_content">
+      <ul>
+        {{each val.children val1 key1}}
+        <li>
+          <a href="javascript:;">
+            <img src="http://api.pyg.ak48.xyz/{{val1.cat_icon}}" alt="">
+            <div class="cate_name">{{val1.cat_name}}</div>
+          </a>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+  {{/each}}
+</script>
+<!-- 右侧商品模板 -->
+<!-- 模板引擎 -->
+<!-- 引用zepto mui 插件的js文件 -->
+<script src="../lib/zepto/zepto.js"></script>
+<script src="../lib/mui/js/mui.js"></script>
+<script src="../lib/arttemplate/template-web.js"></script>
+<script src="../lib/iscroll/iscroll.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/categories.js"></script>
+
+</html>

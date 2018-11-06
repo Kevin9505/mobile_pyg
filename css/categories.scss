@@ -1,0 +1,75 @@
+// 引用公告样式
+@import "_common";
+
+// 内容区
+.pyg_view {
+  display: flex;
+  overflow: hidden;
+}
+
+.pyg_categories_left {
+  width: .8rem;
+  overflow: scroll;
+
+  .cate_menu {
+    @include ul_reset();
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: .4rem;
+      font-size: .14rem;
+      // text-align: center;
+    }
+
+    .active {
+      background-color: #fff;
+      border-left: 4px solid #007aff;
+    }
+  }
+}
+
+.pyg_categories_right {
+  flex: 1;
+  overflow: scroll;
+  height: 100%;
+  background-color: #fff;
+
+  .cate_group_wrap {
+    .cate_group {
+
+      .cate_group_title {
+        padding: 10px 17px;
+        font-size: .14rem;
+        color: #007aff;
+      }
+
+      .cate_group_content {
+
+        ul {
+          @include ul_reset();
+          display: flex;
+          flex-wrap: wrap;
+
+          li {
+            width: 33.33%;
+            text-align: center;
+
+            a {
+              font-size: .14rem;
+              color: #383838;
+
+              img {
+                width: 70%;
+                margin: 0 auto;
+              }
+
+              .cate_name {}
+            }
+          }
+        }
+      }
+    }
+  }
+}
