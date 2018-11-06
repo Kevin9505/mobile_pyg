@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>商品列表</title>
+  <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+  <link rel="stylesheet" href="../lib/mui/css/mui.css">
+  <link rel="stylesheet" href="../css/goodslist.css">
+</head>
+
+<body>
+  <!-- 头部搜索框 -->
+  <!-- <header class="pyg_search">
+    <div class="mui-input-row mui-search">
+      <input type="search" class="mui-input-clear" placeholder="">
+    </div>
+  </header> -->
+  <header id="header" class="mui-bar mui-bar-nav">
+    <a class="mui-action-back fa fa-undo mui-pull-left"></a>
+    <input type="search" class="mui-input-clear goodSearch" placeholder="">
+    <a class="mui-icon  mui-pull-right">搜索</a>
+  </header>
+  <!-- 头部分类 -->
+  <div class="pyg_cateList">
+    <a href="javascript:;">综合</a>
+    <a href="javascript:;">销量</a>
+    <a href="javascript:;">促销</a>
+  </div>
+  <!-- 主要内容区 -->
+  <div class="pyg_view">
+    <div class="pyg_goodItems_wrap">
+      <ul class="pyg_goodItems">
+        <!-- <li>
+          <a href="javascript:;">
+            <div class="goodItems_left">
+              <img src="http://image5.suning.cn/uimg/b2c/newcatentries/0000000000-000000000160455569_1_400x400.jpg" alt="">
+            </div>
+            <div class="goodItems_right">
+              <div class="goodsName">海信(Hisense)LED55MU9600X3DUC 55英寸 4K超高清量子点电视ULED画质 VIDAA系统
+              </div>
+              <div class="goodsMore fa fa-angle-right"></div>
+              <div class="goodsPrice">￥13999</div>
+            </div>
+          </a>
+        </li> -->
+      </ul>
+    </div>
+  </div>
+  <!-- 底部导航条 -->
+  <footer class="pyg_footerBar">
+    <a href="../index.html">
+      <span class="fa fa-home"></span>
+      <div>首页</div>
+    </a>
+    <a class="active" href="./categories.html">
+      <span class="fa fa-list-ul"></span>
+      <div>分类</div>
+    </a>
+    <a href="javascript:;">
+      <span class="fa fa-shopping-cart"></span>
+      <div>购物车</div>
+    </a>
+    <a href="javascript:;">
+      <span class="fa fa-user-circle-o"></span>
+      <div>我的</div>
+    </a>
+  </footer>
+</body>
+<!-- 模板引擎 -->
+<!-- 渲染商品列表数据模板 -->
+<script type="text/template" id="searchDataTpl">
+  {{each data val}}
+  <li>
+    <a href="javascript:;">
+      <div class="goodItems_left">
+        <img src="{{val.goods_small_logo}}" alt="">
+      </div>
+      <div class="goodItems_right">
+        <div class="goodsName">{{val.goods_name}}
+        </div>
+        <div class="goodsMore fa fa-angle-right"></div>
+        <div class="goodsPrice">￥{{val.goods_price}}</div>
+      </div>
+    </a>
+  </li>
+  {{/each}}
+</script>
+<!-- 渲染商品列表数据模板 -->
+<!-- 模板引擎 -->
+<!-- 引用zepto mui 插件的js文件 -->
+<script src="../lib/zepto/zepto.js"></script>
+<script src="../lib/mui/js/mui.js"></script>
+<script src="../lib/arttemplate/template-web.js"></script>
+<script src="../lib/iscroll/iscroll.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/goodslist.js"></script>
+
+</html>

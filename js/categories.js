@@ -65,6 +65,7 @@ $(function () {
   function getRightGood(index) {
     // 获取右侧商品的数据
     var rightGoodData = categoriesData[index].children;
+    console.log(rightGoodData);
     // 渲染右侧商品数据
     var htmlRight = template('RightGoodTpl', {
       data: rightGoodData
