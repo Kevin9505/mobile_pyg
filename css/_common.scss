@@ -22,6 +22,34 @@ img {
   margin: 0px;
 }
 
+// 页面夹加载旋转效果
+.looding {
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    z-index: 101;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(2, 2, 2, 0.2);
+  }
+
+  &::after {
+    content: '\f110';
+    font: normal normal normal 50px/1 FontAwesome;
+    color: #9a9a9a;
+    // font-size: 50px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -25px;
+    margin-left: -25px;
+    animation: fa-spin 1s infinite linear;
+  }
+}
+
 // 头部搜索框的样式
 .pyg_search {
   height: 45px;

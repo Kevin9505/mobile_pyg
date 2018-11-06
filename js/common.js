@@ -19,7 +19,12 @@ $(function () {
   // zepto 拦截器 在发送请求前被调用
   $.ajaxSettings.beforeSend = function (xhr, obj) {
     // console.log(obj.url);
+    $('body').addClass('looding');
     // 根据获取到的数据,拼接接口路径
     obj.url = BaseUrl + obj.url;
+  }
+  // zepto 拦截器 在发送请求结束后被调用
+  $.ajaxSettings.complete = function () {
+    $('body').removeClass('looding');
   }
 })

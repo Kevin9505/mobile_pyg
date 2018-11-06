@@ -10,7 +10,7 @@ $(function () {
   // 获取轮播图数据
   function getSwiperdata() {
     // 发送请求
-    $.get('http://api.pyg.ak48.xyz/api/public/v1/home/swiperdata', function (res) {
+    $.get('home/swiperdata', function (res) {
       // 判断是否拿到数据
       if (res.meta.status == 200) {
         var html = template('sliderTpl', {
@@ -31,8 +31,9 @@ $(function () {
   // 导航数据
   function getCatitems() {
     // 发送请求
-    $.get('http://api.pyg.ak48.xyz/api/public/v1/home/catitems', function (res) {
+    $.get('home/catitems', function (res) {
       // console.log(res);
+      // 渲染数据
       if (res.meta.status == 200) {
         var html = template('navTpl', {
           data: res.data
@@ -44,9 +45,12 @@ $(function () {
 
   // 商品列表数据
   function getGoodslist() {
-    $.get('http://api.pyg.ak48.xyz/api/public/v1/home/goodslist', function (res) {
+    // 发送请求获取数据
+    $.get('home/goodslist', function (res) {
+      // 判断是否是否成功返回
       if (res.meta.status == 200) {
-        console.log(res.data)
+        // console.log(res.data)
+        // 渲染商品列表数据
         var html = template('goodslistTpl', {
           data: res.data
         });
