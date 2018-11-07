@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>注册</title>
+  <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+  <link rel="stylesheet" href="../lib/mui/css/mui.css">
+  <link rel="stylesheet" href="../css/register.css">
+</head>
+
+<body>
+  <!-- 头部tab栏 -->
+  <header class="mui-bar mui-bar-nav pyg_header">
+    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="./login.html"></a>
+    <h1 class="mui-title">注册</h1>
+  </header>
+  <!-- 主要内容区 -->
+  <div class="pyg_view">
+    <div class="mui-content">
+      <!-- 表单 -->
+      <form class="mui-input-group">
+        <!-- 账号 -->
+        <div class="mui-input-row">
+          <label>手机</label>
+          <input id="account" type="text" class="mui-input-clear mui-input" placeholder="请输入11位手机号码" value="13535239647"
+            data-input-clear="1"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+        </div>
+        <!-- 验证码 -->
+        <div class="mui-input-row">
+          <label>验证码</label>
+          <input id="code" type="text" class="mui-input-clear mui-input" placeholder="4位验证码" data-input-clear="1">
+          <button type="button" id="verification" class="mui-btn mui-btn-primary">获取验证码</button>
+          <!-- <span class="mui-icon mui-icon-clear mui-hidden"></span> -->
+        </div>
+        <!-- 邮箱 -->
+        <div class="mui-input-row">
+          <label>邮箱</label>
+          <input id="email" type="email" class="mui-input-clear mui-input" placeholder="请输入邮箱" value="1980942486@qq.com"
+            data-input-clear="4"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+        </div>
+        <!-- 密码 -->
+        <div class="mui-input-row">
+          <label>密码</label>
+          <input id="password" type="password" class="mui-input-clear mui-input" placeholder="请输入密码" data-input-clear="2"><span
+            class="mui-icon mui-icon-clear mui-hidden"></span>
+        </div>
+        <!-- 确认密码 -->
+        <div class="mui-input-row">
+          <label>确认密码</label>
+          <input id="password_confirm" type="password" class="mui-input-clear mui-input" placeholder="请确认密码"
+            data-input-clear="3"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+        </div>
+        <!-- 性别 -->
+        <div class="mui-input-row mui-radio mui-left userSex">
+          <div class="boy_wrap">
+            <label>男</label>
+            <input name="sex" type="radio" value="男" checked>
+          </div>
+          <div class="gril_wrap">
+            <label>女</label>
+            <input name="sex" type="radio" value="女">
+          </div>
+        </div>
+      </form>
+      <!-- 注册按钮 -->
+      <div class="mui-content-padded">
+        <button id="reg" class="mui-btn mui-btn-block mui-btn-primary">注册</button>
+      </div>
+      <div class="mui-content-padded">
+        <p>注册真实可用，注册成功后的用户可用于登录，但是示例程序并未和服务端交互，用户相关数据仅存储于本地。</p>
+      </div>
+    </div>
+  </div>
+  <!-- 底部导航条 -->
+  <footer class="pyg_footerBar">
+    <a href="../index.html">
+      <span class="fa fa-home"></span>
+      <div>首页</div>
+    </a>
+    <a href="./categories.html">
+      <span class="fa fa-list-ul"></span>
+      <div>分类</div>
+    </a>
+    <a href="javascript:;">
+      <span class="fa fa-shopping-cart"></span>
+      <div>购物车</div>
+    </a>
+    <a class="active" href="./login.html">
+      <span class="fa fa-user-circle-o"></span>
+      <div>我的</div>
+    </a>
+  </footer>
+</body>
+<!-- 模板引擎 -->
+
+<!-- 模板引擎 -->
+<!-- 引用zepto mui 插件的js文件 -->
+<script src="../lib/zepto/zepto.js"></script>
+<script src="../lib/mui/js/mui.js"></script>
+<script src="../lib/arttemplate/template-web.js"></script>
+<script src="../lib/iscroll/iscroll.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/register.js"></script>
+
+</html>

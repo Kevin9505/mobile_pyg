@@ -1,0 +1,42 @@
+@import '_common.scss';
+
+.pyg_view {
+
+  .mui-content {
+    padding: 10px;
+
+    .mui-input-group {
+      #verification {
+        position: absolute;
+        top: 1px;
+        right: 20px;
+        width: 30%;
+        // text-align: center;
+        padding: 10px 0;
+      }
+    }
+
+    .userSex {
+      display: flex;
+      justify-content: space-between;
+
+      .boy_wrap {
+        flex: 1;
+        position: relative;
+      }
+
+      .gril_wrap {
+        position: relative;
+        flex: 1;
+      }
+    }
+
+    .mui-content-padded {
+      #reg {
+        padding: 10px 0;
+      }
+    }
+  }
+
+
+}

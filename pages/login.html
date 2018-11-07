@@ -21,19 +21,19 @@
   <div class="pyg_view">
     <div class="mui-content">
       <form id="login-form" class="mui-input-group">
-        <div class="mui-input-row">
+        <div class="mui-input-row userPhone">
           <label>账号</label>
-          <input id="account" type="text" class="mui-input-clear mui-input" placeholder="请输入账号" data-input-clear="2"><span
+          <input id="account" type="text" class="mui-input-clear mui-input" placeholder="请输入11位手机号码" data-input-clear="2"><span
             class="mui-icon mui-icon-clear mui-hidden"></span>
         </div>
-        <div class="mui-input-row">
+        <div class="mui-input-row userPwd">
           <label>密码</label>
           <input id="password" type="password" class="mui-input-clear mui-input" placeholder="请输入密码" data-input-clear="3">
-          <span class="mui-icon mui-icon-clear mui-hidden"></span>
+          <!-- <span class="mui-icon mui-icon-clear mui-hidden"></span> -->
           <span class="mui-icon mui-icon-eye"></span>
         </div>
       </form>
-      <form class="mui-input-group">
+      <!-- <form class="mui-input-group">
         <ul class="mui-table-view mui-table-view-chevron">
           <li class="mui-table-view-cell">
             自动登录
@@ -42,10 +42,10 @@
             </div>
           </li>
         </ul>
-      </form>
+      </form> -->
       <div class="mui-content-padded">
         <button id="login" type="button" class="mui-btn mui-btn-block mui-btn-primary">登录</button>
-        <div class="link-area"><a id="reg">注册账号</a> <span class="spliter">|</span> <a id="forgetPassword">忘记密码</a>
+        <div class="link-area"><a href="./register.html" id="reg">注册账号</a> <span class="spliter">|</span> <a id="forgetPassword">忘记密码</a>
         </div>
       </div>
       <div class="mui-content-padded oauth-area">
@@ -59,7 +59,7 @@
       <span class="fa fa-home"></span>
       <div>首页</div>
     </a>
-    <a class="active" href="./categories.html">
+    <a href="./categories.html">
       <span class="fa fa-list-ul"></span>
       <div>分类</div>
     </a>
@@ -67,7 +67,7 @@
       <span class="fa fa-shopping-cart"></span>
       <div>购物车</div>
     </a>
-    <a href="./login.html">
+    <a class="active" href="./login.html">
       <span class="fa fa-user-circle-o"></span>
       <div>我的</div>
     </a>
