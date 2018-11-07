@@ -5,8 +5,8 @@ $(function () {
   // 渲染分类页面的数据
   function init() {
     // 调用方法
-    setLocalStorage()
-    getcategories(); //获取全部分类数据
+    getLocalStorage(); //判断是否有本地缓存
+    // getcategories(); //获取全部分类数据
 
   }
 
@@ -25,6 +25,7 @@ $(function () {
           time: Date.now()
         }));
         // 渲染数据
+        console.log('发送请求');
         getLeftCate();
         getRightGood(0);
       } else {
@@ -92,7 +93,7 @@ $(function () {
   }
 
   // 二次渲染数据,先判断本地缓存中是否存在,如果不存在,在发送请求获取
-  function setLocalStorage() {
+  function getLocalStorage() {
     var localStorageDataStr = localStorage.getItem('cateData')
     // console.log(localStorageData);
     // 如果没有本地缓存,则发送请求获取数据
@@ -106,6 +107,7 @@ $(function () {
         getcategories();
       } else {
         categoriesData = localStorageData.data;
+        console.log('本地缓存');
         getLeftCate();
         getRightGood(0);
       }
