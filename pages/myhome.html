@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>注册</title>
+  <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+  <link rel="stylesheet" href="../lib/mui/css/mui.css">
+  <link rel="stylesheet" href="../css/myhome.css">
+</head>
+
+<body>
+  <!-- 头部tab栏 -->
+  <header class="mui-bar mui-bar-nav pyg_header">
+    <a class="mui-icon mui-icon-left-nav mui-pull-left" href="./login.html"></a>
+    <h1 class="mui-title">个人中心</h1>
+  </header>
+  <!-- 主要内容区 -->
+  <div class="pyg_view">
+    <!-- 账号主页 homepage -->
+    <ul class="mui-table-view mui-table-view-chevron homepage">
+      <li class="mui-table-view-cell mui-media">
+        <a class="mui-navigate-right" href="#account">
+          <img class="mui-media-object mui-pull-left head-img" id="head-img" src="../images/logo.png">
+          <div class="mui-media-body">
+            13535239645
+            <p class="mui-ellipsis">账号:2980942486@qq.com</p>
+          </div>
+        </a>
+      </li>
+    </ul>
+    <!-- 订单 Order -->
+    <div class="mui-table-view order">
+      <div class="pyg_order_title mui-table-view-cell">
+        订单管理
+      </div>
+      <ul class="pyg_order_items">
+        <li>
+          <span class="fa fa-credit-card"></span>
+          <p>待付款</p>
+        </li>
+        <li>
+          <span class="fa fa-shopping-bag"></span>
+          <p>待收货</p>
+        </li>
+        <li>
+          <span class="fa fa-dollar"></span>
+          <p>退款/售后</p>
+        </li>
+        <li>
+          <span class="fa fa-file-text-o"></span>
+          <p>全部订单</p>
+        </li>
+      </ul>
+    </div>
+    <!-- 管理  manage-->
+    <ul class="mui-table-view manage">
+      <li class="mui-table-view-cell">
+        <a class="mui-navigate-right">修改登录密码</a></li>
+      <li class="mui-table-view-cell">
+        <a class="mui-navigate-right">支付密码管理</a></li>
+      <li class="mui-table-view-cell">
+        <a class="mui-navigate-right">收货地址管理</a></li>
+    </ul>
+    <!-- 反馈 feedback -->
+    <ul class="mui-table-view feedback">
+      <li class="mui-table-view-cell">
+        <a class="mui-navigate-right service">联系客服</a></li>
+      <li class="mui-table-view-cell">
+        <a class="mui-navigate-right">意见反馈</a></li>
+      <li class="mui-table-view-cell">
+        <a class="mui-navigate-right">关于我们</a></li>
+    </ul>
+    <!-- 退出登录 -->
+    <ul class="mui-table-view logout">
+      <li class="mui-table-view-cell mui-btn-danger" style="text-align: center;">
+        <a>退出登录</a>
+      </li>
+    </ul>
+  </div>
+  <!-- 底部导航条 -->
+  <footer class="pyg_footerBar">
+    <a href="../index.html">
+      <span class="fa fa-home"></span>
+      <div>首页</div>
+    </a>
+    <a href="./categories.html">
+      <span class="fa fa-list-ul"></span>
+      <div>分类</div>
+    </a>
+    <a href="javascript:;">
+      <span class="fa fa-shopping-cart"></span>
+      <div>购物车</div>
+    </a>
+    <a class="active" href="./login.html">
+      <span class="fa fa-user-circle-o"></span>
+      <div>我的</div>
+    </a>
+  </footer>
+</body>
+<!-- 模板引擎 -->
+
+<!-- 模板引擎 -->
+<!-- 引用zepto mui 插件的js文件 -->
+<script src="../lib/zepto/zepto.js"></script>
+<script src="../lib/mui/js/mui.js"></script>
+<script src="../lib/arttemplate/template-web.js"></script>
+<script src="../lib/iscroll/iscroll.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/myhome.js"></script>
+
+</html>

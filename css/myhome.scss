@@ -1,0 +1,64 @@
+@import '_common.scss';
+
+.pyg_view {
+  padding: 0 10px;
+
+  .order {
+    margin-top: 10px;
+
+    .pyg_order_title {
+      padding: 10px 15px;
+    }
+
+    .pyg_order_items {
+      @include ul_reset();
+      display: flex;
+
+      li {
+        flex: 1;
+        padding: 8px 0;
+        text-align: center;
+        color: #007aff;
+
+        span {
+          font-size: 20px;
+        }
+
+        p {
+          padding: 0px;
+          margin: 0px;
+          color: #007aff;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .homepage {
+    margin-top: 20px;
+  }
+
+  .manage {
+    margin-top: 10px;
+  }
+
+  .feedback {
+    margin-top: 10px;
+
+    .mui-table-view-cell {
+
+      .service {
+
+        &::after {
+          content: '4000-888-666-888';
+          color: #666;
+        }
+      }
+    }
+  }
+
+  .logout {
+    margin-top: 20px;
+    // margin: 20px 10px;
+  }
+}
