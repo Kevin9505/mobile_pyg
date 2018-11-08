@@ -66,13 +66,14 @@ $(function () {
         }
       }
     });
+    eventTap();
   }
 
   // 获取传过来id对应的数据
   function getSearchData(callback) {
     // 发送请求 http://api.pyg.ak48.xyz/api/public/v1/goods/search
     $.get('goods/search', data, function (res) {
-      // console.log(res)
+      console.log(res)
       // 计算总页数
       totalPage = Math.ceil(res.data.total / data.pagesize);
       // 判断数据是否回来,回来后调用模板
@@ -85,6 +86,22 @@ $(function () {
       } else {
         console.log(res.meta.msg);
       }
+    })
+  }
+
+  // mui在下拉和上拉组件中,禁止了a标签的点击默认跳转行为
+  // 原因: 因为mui后期是可以将代码打包成混合app,h5的默认跳转不好看,在去页面跳转的时候,希望你可以使用app内一些跳转更好看
+  // 解决: 1. 修改源码   不靠谱  
+  //      2. 把 a标签看作普通div
+  // 1 触发tap的点击事件,获取被点击的标签的href
+  // 2 通过js的方式跳转  location.href=被点击的a表的href
+  function eventTap() {
+    $('.pyg_goodItems').on('tap', 'a', function () {
+      // console.log($(this)[0].href);
+      // console.log(this.href);
+      var href = this.href;
+      console.log(href);
+      location.href = href;
     })
   }
 })
