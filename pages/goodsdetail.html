@@ -19,12 +19,89 @@
   </header>
   <!-- 主要内容区 -->
   <div class="pyg_view">
-    商品详情页
-  </div>
 
+
+
+
+  </div>
+  <!-- 底部购买按钮 -->
+  <footer class="pyg_tool_btn">
+    <ul>
+      <li><span class="mui-icon mui-icon-chat"></span>客服</li>
+      <li><span class="mui-icon mui-icon-chat"></span>客服</li>
+      <li>立即购买</li>
+      <li>加入购物车</li>
+    </ul>
+  </footer>
 </body>
 <!-- 模板引擎 -->
-
+<script type="text/template" id="goodsDetailTpl">
+  <!-- 轮播图 -->
+  <div class="mui-slider pyg_goods_slider">
+  <!-- 图片 -->
+  <div class="mui-slider-group mui-slider-loop">
+    {{each data.pics val key}}
+    <!--支持循环，需要重复图片节点-->
+    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="{{data.pics[data.pics.length-1].pics_mid_url}}" /></a></div>
+    <div class="mui-slider-item"><a href="#"><img src="{{val.pics_mid_url}}" /></a></div>
+    <!--支持循环，需要重复图片节点-->
+    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="{{data.pics[0].pics_mid_url}}" /></a></div>
+    {{/each}}
+  </div>
+  <!-- 索引器 -->
+  <div class="mui-slider-indicator">
+    {{each data.pics val key}}
+    {{if key == 0}}
+    <div class="mui-indicator mui-active"></div>
+    {{/if}}
+    {{if key =! 0}}
+    <div class="mui-indicator"></div>
+    {{/if}}
+    {{/each}}
+  </div>
+  </div>
+  <!-- 商品信息 -->
+  <div class="pyg_goods_info">
+      <!-- 商品名称 -->
+      <div class="pyg_goods_name">
+        {{data.goods_name}}
+      </div>
+      <!-- 商品价格 -->
+      <div class="pyg_goods_price">￥{{data.goods_price}}</div>
+      <!-- 商品描述 -->
+      <div class="pyg_goods_describe">
+        <ul class="mui-table-view describe_wrap">
+          <li><a href="javascript:;">已选</a><span>白色</span></li>
+          <li><a href="javascript:;">促销</a><span>是</span></li>
+          <li><a href="javascript:;">送至</a><span>上海市</span></li>
+          <li><a href="javascript:;">运费</a><span>免运费</span></li>
+        </ul>
+      </div>
+      <!-- tab栏 -->
+      <div class="pyg_goods_tab">
+        <!-- 切换按钮 -->
+        <div style="padding: 10px 10px;">
+          <div id="segmentedControl" class="mui-segmented-control mui-segmented-control-primary">
+            <a class="mui-control-item mui-active" href="#item1">
+              图文详情
+            </a>
+            <a class="mui-control-item" href="#item2">
+              规格参数
+            </a>
+          </div>
+        </div>
+        <!-- 对应内容区 -->
+        <div>
+          <div id="item1" class="mui-control-content mui-active">
+            {{@data.goods_introduce}}
+          </div>
+          <div id="item2" class="mui-control-content">
+            规格参数
+          </div>
+        </div>
+      </div>
+    </div>
+</script>
 <!-- 模板引擎 -->
 <!-- 引用zepto mui 插件的js文件 -->
 <script src="../lib/zepto/zepto.js"></script>

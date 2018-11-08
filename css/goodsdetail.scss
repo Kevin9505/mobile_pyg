@@ -7,4 +7,106 @@
 // 中间内容
 .pyg_view {
   height: 100%;
+  background-color: #fff;
+
+  // 轮播图
+  .pyg_goods_slider {}
+
+  .pyg_goods_info {
+    height: 100%;
+    padding: 5px;
+
+    // 商品名称
+    .pyg_goods_name {
+      font-size: 16px;
+    }
+
+    // 商品价格
+    .pyg_goods_price {
+      color: #F63515;
+      font-size: 24px;
+      font-weight: 600;
+      padding: 10px 0;
+    }
+
+    // 商品描述
+    .pyg_goods_describe {
+      padding-top: 5px;
+
+      .describe_wrap {
+        &::before {
+          height: 0px;
+        }
+
+        li {
+          display: flex;
+          padding: 8px 0;
+          font-size: 14px;
+          border-bottom: 1px solid #ccc;
+          // justify-content: space-between;
+
+          a {
+            flex: 2;
+            color: #666;
+          }
+
+          span {
+            flex: 7
+          }
+        }
+      }
+    }
+  }
+}
+
+// 底部工具栏
+.pyg_tool_btn {
+  box-shadow: 0 -1px 6px #ccc;
+  width: 100%;
+
+  ul {
+    @include ul_reset();
+    display: flex;
+    background-color: #fff;
+
+    li {
+      flex: 1;
+      height: 53px;
+      border-left: 1px solid #ccc;
+
+      &:nth-child(1) {
+        border-left: none;
+      }
+
+      &:nth-child(-n+2) {
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        padding-top: 5px;
+        color: #666;
+
+        span {
+          // flex: 1;
+          font-size: 20px;
+          padding-bottom: 4px;
+        }
+      }
+
+      &:nth-last-child(-n+2) {
+        text-align: center;
+        color: #fff;
+        font-size: 14px;
+        line-height: 53px;
+      }
+
+      &:nth-child(3) {
+        background-color: #ffaa00;
+      }
+
+      &:nth-child(4) {
+        background-color: #ff6600;
+      }
+    }
+  }
 }

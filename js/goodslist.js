@@ -100,7 +100,7 @@ $(function () {
       // console.log($(this)[0].href);
       // console.log(this.href);
       var href = this.href;
-      console.log(href);
+      // console.log(href);
       location.href = href;
     })
   }
