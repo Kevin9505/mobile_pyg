@@ -38,7 +38,8 @@ $(function () {
 
   // 点击小眼睛控制密码的显示隐藏
   // $('.mui-icon-eye').on('tap', function () {
-  //   $('.userPwd span').addClass('mui-active')
+  //   console.log(11);
+  //   $(this).addClass('mui-active')
   // })
 
   // 点击登录
@@ -67,7 +68,7 @@ $(function () {
 
   // 从数据库中获取数据
   function getUserData(userPhone, userPwd) {
-    // console.log(userPhone, userPwd);
+    console.log(userPhone, userPwd);
     // 发送post请求
     $.post('login', {
       username: userPhone,
@@ -76,7 +77,13 @@ $(function () {
       // console.log(res)
       // 判断是否有数据返回
       if (res.meta.status == 200) {
-
+        console.log(res.data);
+        mui.toast(res.meta.msg, {
+          duration: 'long',
+          type: 'div'
+        });
+        return;
+        window.location.href = "./myhome.html";
       } else {
         mui.toast(res.meta.msg, {
           duration: 'long',

@@ -9,7 +9,7 @@
 
 .pyg_categories_left {
   width: .8rem;
-  overflow: scroll;
+  overflow: hidden;
 
   .cate_menu {
     @include ul_reset();

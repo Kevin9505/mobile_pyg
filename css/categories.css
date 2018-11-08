@@ -99,7 +99,7 @@ img {
 
 .pyg_categories_left {
   width: .8rem;
-  overflow: scroll;
+  overflow: hidden;
 }
 
 .pyg_categories_left .cate_menu {

@@ -188,6 +188,7 @@ body {
 
 .pyg_view {
   position: relative;
+  overflow: hidden;
 }
 
 .pyg_view .pyg_goodItems_wrap .pyg_goodItems {

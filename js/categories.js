@@ -30,6 +30,11 @@ $(function () {
         getRightGood(0);
       } else {
         console.log('获取数据失败');
+        mui.toast(res.meta.msg, {
+          duration: 'long',
+          type: 'div'
+        });
+        return;
       }
     })
   }
@@ -66,7 +71,7 @@ $(function () {
   function getRightGood(index) {
     // 获取右侧商品的数据
     var rightGoodData = categoriesData[index].children;
-    console.log(rightGoodData);
+    // console.log(rightGoodData);
     // 渲染右侧商品数据
     var htmlRight = template('RightGoodTpl', {
       data: rightGoodData
