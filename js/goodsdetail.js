@@ -2,10 +2,13 @@ $(function () {
   init()
 
   function init() {
-    var goods_id = getUrlVal('goods_id');
-    var Cid = getUrlVal('cid');
+    var goods_id = $.getUrlVal('goods_id');
+    var Cid = $.getUrlVal('cid');
     $('.goback')[0].href = './goodslist.html?cid=' + Cid;
+    // 获取商品信息
     getGoodsDetail(goods_id)
+    // 添加到购物车
+    addCart();
   }
 
   // 获取商品的数据
@@ -20,7 +23,6 @@ $(function () {
         });
         $('.pyg_view').html(html)
         setSlider();
-
       }
     })
   }
@@ -33,22 +35,24 @@ $(function () {
     });
   }
 
-
-  //截取字符串中文传参
-  function getUrlVal(key) {
-    // 获取参数 
-    var url = window.location.search;
-    // 正则筛选地址栏 
-    var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
-    // 匹配目标参数 
-    var result = url.substr(1).match(reg);
-    //返回参数值 
-    return result ? decodeURIComponent(result[2]) : null;
+  // 点击加入购物车
+  function addCart() {
+    $('.pyg_addCart').on('tap', function () {
+      // 点击加入购物车后,先判断是否已经登录了,从本地存储中获取信息,从而判断是否登录
+      var userInfo = localStorage.getItem('userInfo');
+      // console.log(userInfo);
+      if (!userInfo) {
+        mui.toast('请先登录', {
+          duration: 'long',
+          type: 'div'
+        })
+        setTimeout(function () {
+          location.href = './login.html';
+        }, 1000)
+        return;
+      }
+    })
   }
 
-  // 返回商品列表页
-  $('.goback').on('tap', function () {
-    console.log(this);
-  })
 
 })
