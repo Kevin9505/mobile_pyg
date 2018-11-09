@@ -44,7 +44,7 @@ $(function () {
       // 点击加入购物车后,先判断是否已经登录了,从本地存储中获取信息,从而判断是否登录
       var userInfoStr = localStorage.getItem('userInfo');
 
-      if (!userInfoStr) {
+      if (!userInfoStr && Date.now() - JSON.parse(userInfoStr).loginTime > 1000000) {
         mui.toast('请先登录', {
           duration: 'long',
           type: 'div'
