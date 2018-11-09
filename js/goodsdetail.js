@@ -2,7 +2,9 @@ $(function () {
   init()
 
   function init() {
-    var goods_id = getUrlVal('cid');
+    var goods_id = getUrlVal('goods_id');
+    var Cid = getUrlVal('cid');
+    $('.goback')[0].href = './goodslist.html?cid=' + Cid;
     getGoodsDetail(goods_id)
   }
 
@@ -18,10 +20,10 @@ $(function () {
         });
         $('.pyg_view').html(html)
         setSlider();
+
       }
     })
   }
-
   // 轮播图的初始化
   function setSlider() {
     //获得slider插件对象
@@ -43,5 +45,10 @@ $(function () {
     //返回参数值 
     return result ? decodeURIComponent(result[2]) : null;
   }
+
+  // 返回商品列表页
+  $('.goback').on('tap', function () {
+    console.log(this);
+  })
 
 })

@@ -82,6 +82,7 @@ $(function () {
           duration: 'long',
           type: 'div'
         });
+        // $.session.set('key',res.data.token )
         return;
         window.location.href = "./myhome.html";
       } else {
