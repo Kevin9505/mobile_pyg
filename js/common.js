@@ -37,6 +37,41 @@ $(function () {
     }
   }
 
-  
+
+  // 为$对象增加自定义方法
+  $.extend($, {
+    //截取字符串中文传参
+    getUrlVal: function (key) {
+      // 获取参数 
+      var url = window.location.search;
+      // 正则筛选地址栏 
+      var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
+      // 匹配目标参数 
+      var result = url.substr(1).match(reg);
+      //返回参数值 
+      return result ? decodeURIComponent(result[2]) : null;
+    },
+    // 验证邮箱的函数
+    checkEmail: function (myemail) {
+      // 规则
+      var myReg = /^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
+      // 判断值是否符合规则
+      if (myReg.test(myemail)) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    // 验证手机号码
+    checkPhone: function (phone) {
+      if (!(/^1[34578]\d{9}$/.test(phone))) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+  })
+
+
 
 })

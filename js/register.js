@@ -75,7 +75,7 @@ $(function () {
         type: 'div'
       })
       return;
-    } else if (!checkEmail(userEmail)) {
+    } else if (!$.checkEmail(userEmail)) {
       mui.toast('邮箱格式不正确', {
         duration: 'long',
         type: 'div'
@@ -127,7 +127,7 @@ $(function () {
           type: 'div'
         });
         window.location.href = "./login.html";
-      } else if(res.meta.status == 400) {
+      } else if (res.meta.status == 400) {
         mui.toast('注册失败,请重新注册', {
           duration: 'long',
           type: 'div'
@@ -135,15 +135,5 @@ $(function () {
       }
     })
   }
-  // 验证邮箱的函数
-  function checkEmail(myemail) {
-    // 规则
-    var myReg = /^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
-    // 判断值是否符合规则
-    if (myReg.test(myemail)) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+
 })

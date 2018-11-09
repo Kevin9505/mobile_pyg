@@ -9,21 +9,11 @@ $(function () {
     query: '',
     currentPagenum: 1,
     pagesize: 10,
-    cid: getUrlVal('cid')
+    cid: $.getUrlVal('cid')
   }
   init()
 
-  //截取字符串中文传参
-  function getUrlVal(key) {
-    // 获取参数 
-    var url = window.location.search;
-    // 正则筛选地址栏 
-    var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
-    // 匹配目标参数 
-    var result = url.substr(1).match(reg);
-    //返回参数值 
-    return result ? decodeURIComponent(result[2]) : null;
-  }
+
 
   // 下拉刷新上拉加载效果的初始化函数
   function init() {
@@ -97,8 +87,6 @@ $(function () {
   // 2 通过js的方式跳转  location.href=被点击的a表的href
   function eventTap() {
     $('.pyg_goodItems').on('tap', 'a', function () {
-      // console.log($(this)[0].href);
-      // console.log(this.href);
       var href = this.href;
       // console.log(href);
       location.href = href;
