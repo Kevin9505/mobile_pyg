@@ -1,99 +1,61 @@
 $(function () {
-  // init();
+  init();
 
-  // function init() {}
+  function init() {
+    getLogin();
+  }
 
-  // 账号输入框改变时
-  $('#account').on('input', function () {
-    // 获取手机号码
-    var userPhone = $('#account').val();
-    if (userPhone != '' && userPhone.trim() != '') {
-      $('.userPhone span').removeClass('mui-hidden');
-    } else {
-      $('.userPhone span').addClass('mui-hidden');
-    }
-
-  })
-
-  // 账号文本框失焦时,隐藏一次清除按钮
-  $('#account').on('blur', function () {
-    // console.log(11);
-    $('.userPhone span').addClass('mui-hidden');
-  })
-  // 当账号文本框再次获焦时,判断是否为空,不为空,叉掉按钮显示
-  $('#account').on('focus', function () {
-    var userPhone = $('#account').val();
-    // console.log(22);
-    if (userPhone != '' && userPhone.trim() != '') {
-      $('.userPhone span').removeClass('mui-hidden');
-    }
-  })
-
-
-  // 一次清除文本框中的值
-  $('.mui-icon-clear').on('tap', function () {
-    $('#account').val('');
-    $(this).addClass('mui-hidden');
-  })
-
-  // 点击小眼睛控制密码的显示隐藏
-  // $('.mui-icon-eye').on('tap', function () {
-  //   console.log(11);
-  //   $(this).addClass('mui-active')
-  // })
-
-  // 点击登录
-  $('#login').on('tap', function () {
-    // 获取手机号码,密码
-    var userPhone = $('#account').val();
-    var userPwd = $('#password').val();
-    // 判断手机号码是否为空
-    if (userPhone == '' && userPhone.trim() == '') {
-      mui.toast('手机号码格式不正确', {
-        duration: 'long',
-        type: 'div'
-      });
-      return;
-    }
-    // 判断密码是否为空
-    if (userPwd == '' && userPwd.trim() == '') {
-      mui.toast('密码不能为空', {
-        duration: 'long',
-        type: 'div'
-      });
-      return;
-    }
-    getUserData(userPhone, userPwd)
-  })
-
-  // 从数据库中获取数据
-  function getUserData(userPhone, userPwd) {
-    console.log(userPhone, userPwd);
-    // 发送post请求
-    $.post('login', {
-      username: userPhone,
-      password: userPwd
-    }, function (res) {
-      // console.log(res)
-      // 判断是否有数据返回
-      if (res.meta.status == 200) {
-        console.log(res.data);
-        mui.toast(res.meta.msg, {
-          duration: 'long',
-          type: 'div'
-        });
-        // $.session.set('key',res.data.token )
-        return;
-        window.location.href = "./myhome.html";
-      } else {
-        mui.toast(res.meta.msg, {
+  function getLogin() {
+    $('#login').on('tap', function () {
+      // 获取用户输入的数据
+      var mobile = $('#mobile').val().trim();
+      var password = $('#password').val().trim();
+      // 验证手机号码
+      if (!$.checkPhone(mobile)) {
+        mui.toast('手机号码格式不正确', {
           duration: 'long',
           type: 'div'
         });
         return;
       }
+      // 验证密码
+      if (password.length < 6) {
+        mui.toast('密码长度至少6位', {
+          duration: 'long',
+          type: 'div'
+        });
+        return;
+      }
+      // 当验证全部通过后,发送请求,获取用户信息
+      $.post('login', {
+        username: mobile,
+        password: password
+      }, function (res) {
+        // console.log(res);
+        if (res.meta.status == 200) {
+          res.data.loginTime = Date.now();
+          // console.log(res);
+          // 将登录成功后返回的用户数据存储在本地永久缓存中
+          localStorage.setItem('userInfo', JSON.stringify(res.data));
+          mui.toast(res.meta.msg, {
+            duration: 'long',
+            type: 'div'
+          });
+          var pageUrl = sessionStorage.getItem('pageUrl');
+          console.log(pageUrl);
+          // 判断是否存在跳转过来页面的路径,如果有,则跳转回去,否则跳转到首页
+          if (pageUrl) {
+            location.href = pageUrl;
+          } else {
+            location.href = '../index.html';
+          }
+        } else {
+          mui.toast(res.meta.msg, {
+            duration: 'long',
+            type: 'div'
+          });
+        }
+      })
     })
   }
-
-  
 })

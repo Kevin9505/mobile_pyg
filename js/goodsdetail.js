@@ -43,12 +43,15 @@ $(function () {
     $('.pyg_addCart').on('tap', function () {
       // 点击加入购物车后,先判断是否已经登录了,从本地存储中获取信息,从而判断是否登录
       var userInfoStr = localStorage.getItem('userInfo');
-      // console.log(userInfo);
+
       if (!userInfoStr) {
         mui.toast('请先登录', {
           duration: 'long',
           type: 'div'
         })
+        // 将当前页面的路劲存放在会话缓存中,方便后面登录判断所返回的页面
+        sessionStorage.setItem('pageUrl', location.href)
+        // 1秒后跳转到登录页面
         setTimeout(function () {
           location.href = './login.html';
         }, 1000)
@@ -64,31 +67,36 @@ $(function () {
           goods_small_logo: GoodsInfo.goods_small_logo,
           goods_weight: GoodsInfo.goods_weight
         }
-        // console.log(info);
-        // 发送请求
+        //将商品信息转为json字符串
         var infoStr = JSON.stringify(info);
+        // 获取用户的token
         var userToken = JSON.parse(userInfoStr).token;
-        // console.log(userToken);
+        // console.log(JSON.parse(userInfoStr).token);
         /**因为当前的接口必须在请求头里,添加token,$.post()没有办法添加;data:只是放正常的业务流程的参数  headers: 一般是存放 登录 凭证相关 */
+        // 发送请求
         $.ajax({
           type: 'post',
           url: 'my/cart/add',
           data: {
             info: infoStr
           },
-          Authorization: userToken,
+          headers: { //请求头
+            Authorization: userToken
+          },
           success: function (res) {
             console.log(res);
             if (res.meta.status == 200) {
               mui.confirm('添加成功，跳转到购物车页面?', '温馨提示', ['跳转', '取消'], function (type) {
                 if (type.index == 0) {
-                  location.href = './shoppingCart.html'
+                  setTimeout(function () {
+                    location.href = './shoppingCart.html'
+                  }, 1000)
                 } else {
                   console.log('取消');
                 }
               })
             } else {
-              mui.toast(res.meta.status, {
+              mui.toast(res.meta.msg, {
                 duration: 'long',
                 type: 'div'
               })
