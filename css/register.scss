@@ -3,16 +3,25 @@
 .pyg_view {
 
   .mui-content {
-    padding: 10px;
+    padding: 10px 5px;
 
     .mui-input-group {
+      .mui-input-row {
+        label {
+          width: 30%;
+        }
+
+        input {
+          width: 70%;
+        }
+      }
+
       #verification {
         position: absolute;
-        top: 1px;
-        right: 20px;
-        width: 30%;
-        // text-align: center;
-        padding: 10px 0;
+        top: 3px;
+        right: 5px;
+        width: auto;
+        padding: 8px;
       }
     }
 

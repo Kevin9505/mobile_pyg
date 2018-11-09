@@ -91,15 +91,23 @@ img {
 }
 
 .pyg_view .mui-content {
-  padding: 10px;
+  padding: 10px 5px;
+}
+
+.pyg_view .mui-content .mui-input-group .mui-input-row label {
+  width: 30%;
+}
+
+.pyg_view .mui-content .mui-input-group .mui-input-row input {
+  width: 70%;
 }
 
 .pyg_view .mui-content .mui-input-group #verification {
   position: absolute;
-  top: 1px;
-  right: 20px;
-  width: 30%;
-  padding: 10px 0;
+  top: 3px;
+  right: 5px;
+  width: auto;
+  padding: 8px;
 }
 
 .pyg_view .mui-content .userSex {
