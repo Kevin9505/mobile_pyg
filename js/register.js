@@ -38,7 +38,7 @@ $(function () {
               $('#verification').html('获取验证码');
             }
             console.log(times);
-          }, 500)
+          }, 1000)
           mui.toast('验证码为 : ' + res.data, {
             duration: 'long',
             type: 'div'
@@ -107,8 +107,24 @@ $(function () {
         pwd: pwd,
         gender: gender
       }
+      // 发送请求
       $.post('users/reg', userRegister, function (res) {
-        // console.log(res);
+        // 判断数据是否返回
+        if (res.meta.status == 200) {
+          // localStorage.setItem('userInfo', res.data);
+          mui.toast(res.meta.msg, {
+            duration: 'long',
+            type: 'div'
+          })
+          setTimeout(function () {
+            location.href = './login.html';
+          }, 1000)
+        } else {
+          mui.toast(res.meta.msg, {
+            duration: 'long',
+            type: 'div'
+          })
+        }
       })
     })
   }
