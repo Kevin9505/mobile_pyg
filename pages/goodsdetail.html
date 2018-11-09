@@ -91,12 +91,22 @@
           </div>
         </div>
         <!-- 对应内容区 -->
-        <div>
+        <div class="item_wrap">
           <div id="item1" class="mui-control-content mui-active">
             {{@data.goods_introduce}}
           </div>
           <div id="item2" class="mui-control-content">
-            规格参数
+            <ul class="pyg_goodsInfo_wrap">
+              {{each data.attrs val key}}
+              <li>
+                <div class="pyg_goodsInfo_title">{{val.attr_name.split('-')[0]}}</div>
+                <div class="pyg_goodsInfo_descr">
+                  <span>{{val.attr_name.split('-')[1]}}</span>
+                  <span>{{val.attr_value}}</span>
+                </div>
+              </li>
+              {{/each}}
+            </ul>
           </div>
         </div>
       </div>

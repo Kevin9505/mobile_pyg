@@ -141,6 +141,50 @@ img {
           flex: 7;
 }
 
+.pyg_view .pyg_goods_info .pyg_goods_tab .item_wrap {
+  height: 100%;
+}
+
+.pyg_view .pyg_goods_info .pyg_goods_tab .item_wrap .pyg_goodsInfo_wrap {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  padding: 8px 8px;
+  background-color: #efeff4;
+}
+
+.pyg_view .pyg_goods_info .pyg_goods_tab .item_wrap .pyg_goodsInfo_wrap li .pyg_goodsInfo_title {
+  font-size: 16px;
+  color: #272727;
+  padding: 8px 0;
+  font-weight: 600;
+  border-bottom: 1px solid #666;
+}
+
+.pyg_view .pyg_goods_info .pyg_goods_tab .item_wrap .pyg_goodsInfo_wrap li .pyg_goodsInfo_descr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.pyg_view .pyg_goods_info .pyg_goods_tab .item_wrap .pyg_goodsInfo_wrap li .pyg_goodsInfo_descr span {
+  padding: 5px 0;
+  color: #272727;
+  font-size: 14px;
+}
+
+.pyg_view .pyg_goods_info .pyg_goods_tab .item_wrap .pyg_goodsInfo_wrap li .pyg_goodsInfo_descr span:nth-child(1) {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.pyg_view .pyg_goods_info .pyg_goods_tab .item_wrap .pyg_goodsInfo_wrap li .pyg_goodsInfo_descr span:nth-child(2) {
+  -webkit-box-flex: 4;
+      -ms-flex: 4;
+          flex: 4;
+}
+
 .pyg_tool_btn {
   -webkit-box-shadow: 0 -1px 6px #ccc;
           box-shadow: 0 -1px 6px #ccc;
