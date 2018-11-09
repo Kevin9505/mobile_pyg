@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>购物车</title>
+  <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+  <link rel="stylesheet" href="../lib/mui/css/mui.css">
+  <link rel="stylesheet" href="../css/shoppingCart.css">
+</head>
+
+<body>
+  <!-- 头部tab栏 -->
+  <header class="mui-bar mui-bar-nav pyg_header">
+    <!-- <a href="javascript:;" class="mui-icon mui-icon-left-nav mui-pull-left"></a> -->
+    <span class="mui-btn mui-btn-primary mui-btn-outlined mui-pull-left" id="pyg_delete">删除</span>
+    <h1 class="mui-title">购物车</h1>
+    <span class="mui-btn mui-btn-primary mui-btn-outlined mui-pull-right" id="pyg_edit">编辑</span>
+  </header>
+  <!-- 主要内容区 -->
+  <div class="pyg_view">
+    <!-- 配送地址 -->
+    <div class="pyg_address">
+      <div class="addr_title">配送地址</div>
+      <ul class="mui-table-view addr_wrap">
+        <li class="mui-table-view-cell mui-media">
+          <a href="javascript:;">
+            <span class="mui-media-object mui-pull-left mui-icon mui-icon-location"></span>
+            <div class="mui-media-body">默认地址<p class="mui-ellipsis">中国广东广州</p>
+            </div>
+            <span class="mui-pull-right mui-icon mui-icon-arrowright"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- 总价 -->
+    <div class="pyg_total_price">
+      <div class="total_price_title">总价</div>
+      <ul class="mui-table-view total_price_wrap">
+        <li class="mui-table-view-cell">
+          <a class="mui-navigate-right">
+            <span class="totalPrice">总价: ￥2799</span>
+            <span class="makeOrder">生成订单</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- 订单 -->
+    <div class="pyg_order">
+      <div class="order_title">订单</div>
+      <ul class="mui-table-view mui-table-view-chevron order_wrap">
+        <li class="mui-table-view-cell mui-media">
+          <a class="mui-navigate-right">
+            <img class="mui-media-object mui-pull-left" src="../images/cbd.jpg">
+            <div class="mui-media-body" id="order_info">
+              <p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>￥2799
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- 底部导航条 -->
+  <footer class="pyg_footerBar">
+    <a href="../index.html">
+      <span class="fa fa-home"></span>
+      <div>首页</div>
+    </a>
+    <a href="./categories.html">
+      <span class="fa fa-list-ul"></span>
+      <div>分类</div>
+    </a>
+    <a class="active" href="javascript:;">
+      <span class="fa fa-shopping-cart"></span>
+      <div>购物车</div>
+    </a>
+    <a href="./login.html">
+      <span class="fa fa-user-circle-o"></span>
+      <div>我的</div>
+    </a>
+  </footer>
+</body>
+<!-- 模板引擎 -->
+
+<!-- 模板引擎 -->
+<!-- 引用zepto mui 插件的js文件 -->
+<script src="../lib/zepto/zepto.js"></script>
+<script src="../lib/mui/js/mui.js"></script>
+<script src="../lib/arttemplate/template-web.js"></script>
+<script src="../lib/iscroll/iscroll.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/shoppingCart.js"></script>
+
+</html>

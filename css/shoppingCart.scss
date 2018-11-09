@@ -1,0 +1,108 @@
+@import "_common.scss";
+
+// 头部tab栏
+.pyg_header {
+
+  #pyg_delete {
+    margin-right: 0;
+    top: 5px;
+  }
+
+  #pyg_edit {
+    margin-left: 0px;
+    top: 5px;
+  }
+}
+
+// 主要内容区
+.pyg_view {
+  padding: 0 10px;
+
+  // 配送地址
+  .pyg_address {
+    margin-top: 40px;
+
+    .addr_title {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .addr_wrap {
+
+      li {
+
+        a {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .mui-media-body {
+            flex: 1;
+          }
+
+          .mui-icon-arrowright {
+            font-size: 16px;
+            color: #bbb;
+          }
+        }
+      }
+    }
+  }
+
+  // 总价
+  .pyg_total_price {
+    margin-top: 20px;
+
+    .total_price_title {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .total_price_wrap {
+
+      li {
+
+        a {
+          font-size: 16px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .totalPrice {}
+
+          .makeOrder {
+            margin-right: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  // 订单
+  .pyg_order {
+    margin-top: 20px;
+
+    .order_title {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .order_wrap {
+
+      li {
+
+        #order_info {
+
+          &::after {
+            content: '';
+          }
+        }
+      }
+    }
+  }
+
+  // 
+}
