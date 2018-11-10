@@ -23,13 +23,20 @@ $(function () {
   // zepto 拦截器
   function ajaxSet() {
     // 定义公共路径
-    var BaseUrl = 'http://api.pyg.ak48.xyz/api/public/v1/';
+    // var BaseUrl = 'http://api.pyg.ak48.xyz/api/public/v1/';
+    var BaseUrl = 'http://api.pyg.ak48.xyz/';
+    // 在template里面导入变量
+    // template.defaults.imports.log=console.log;
+    if (window.template) { //加上 window可以解决报错，虽然是未定义
+      template.defaults.imports.imgurl = BaseUrl;
+    }
     // zepto 拦截器 在发送请求前被调用
     $.ajaxSettings.beforeSend = function (xhr, obj) {
       // console.log(obj.url);
-      $('body').addClass('looding');
       // 根据获取到的数据,拼接接口路径
-      obj.url = BaseUrl + obj.url;
+      obj.url = BaseUrl + 'api/public/v1/' + obj.url;
+      // 正在等待
+      $('body').addClass('looding');
     }
     // zepto 拦截器 在发送请求结束后被调用
     $.ajaxSettings.complete = function () {
