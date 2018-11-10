@@ -11,3 +11,4 @@ $.extend($, {
 template.defaults.imports.imgurl=BaseUrl; 
 val BaseUrl='http://api.pyg.ak48.xyz/';
 调用方法: {{.imgurl}};
+#### h5自定义属性
