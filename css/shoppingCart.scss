@@ -70,10 +70,18 @@
           justify-content: space-between;
           align-items: center;
 
-          .totalPrice {}
+          .totalPrice {
+
+            .price_wrap {
+              color: #f70000;
+              margin-left: 5px;
+              font-size: 16px;
+              font-weight: 600;
+            }
+          }
 
           .makeOrder {
-            margin-right: 20px;
+            // margin-right: 20px;
           }
         }
       }
@@ -90,19 +98,104 @@
       margin-bottom: 5px;
     }
 
-    .order_wrap {
+    .pyg_order_wrap {
+      @include ul_reset();
 
       li {
+        display: flex;
+        padding: 10px;
+        margin-bottom: 5px;
+        border-bottom: 1px solid #c8c7cc;
+        background-color: #fff;
 
-        #order_info {
+        .ow_left {
+          overflow: hidden;
+          flex: 2;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 3px;
+          // background-color: #ccc;
 
-          &::after {
-            content: '';
+          #checkBtn_wrap {
+            display: flex;
+            height: 100%;
+            flex: 1;
+            // width: 100%;
+            justify-content: center;
+            align-items: center;
+
+            .checkBtn {
+              left: 0px;
+              top: 20px;
+            }
+          }
+
+          .goods_img {
+            flex: 2;
+
+            img {}
+          }
+
+        }
+
+        .ow_right {
+          flex: 4;
+          padding-left: 5px;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+
+          .pyg_goods_name {
+            font-size: 14px;
+            height: 45px;
+            overflow: hidden;
+            color: #666;
+          }
+
+          .pyg_goods_price_wrap {
+            display: flex;
+            justify-content: space-between;
+
+            .goods_price {
+              font-size: 18px;
+              display: flex;
+              align-items: center;
+              color: #f70000;
+            }
+
+            .num_wrap {}
           }
         }
       }
     }
+
   }
 
   // 
+}
+
+body {
+  display: none;
+}
+
+/* 控制按钮的隐藏 */
+#pyg_body {
+
+  #pyg_delete,
+  #checkBtn_wrap,
+  .num_wrap {
+    display: none;
+  }
+}
+
+/* 控制按钮的显示 */
+#pyg_body.edit {
+
+  #pyg_delete,
+  #checkBtn_wrap,
+  .num_wrap {
+    display: block;
+  }
 }

@@ -19,32 +19,6 @@ $(function () {
   window.onresize = function () {
     setFontSize();
   }
-
-  // zepto 拦截器
-  function ajaxSet() {
-    // 定义公共路径
-    // var BaseUrl = 'http://api.pyg.ak48.xyz/api/public/v1/';
-    var BaseUrl = 'http://api.pyg.ak48.xyz/';
-    // 在template里面导入变量
-    // template.defaults.imports.log=console.log;
-    if (window.template) { //加上 window可以解决报错，虽然是未定义
-      template.defaults.imports.imgurl = BaseUrl;
-    }
-    // zepto 拦截器 在发送请求前被调用
-    $.ajaxSettings.beforeSend = function (xhr, obj) {
-      // console.log(obj.url);
-      // 根据获取到的数据,拼接接口路径
-      obj.url = BaseUrl + 'api/public/v1/' + obj.url;
-      // 正在等待
-      $('body').addClass('looding');
-    }
-    // zepto 拦截器 在发送请求结束后被调用
-    $.ajaxSettings.complete = function () {
-      $('body').removeClass('looding');
-    }
-  }
-
-
   // 为$对象增加自定义方法
   $.extend($, {
     //截取字符串中文传参
@@ -93,27 +67,57 @@ $(function () {
       localStorage.setItem('userInfo', JSON.stringify(userData));
     },
     // 获取用户信息本地缓存
-    getUserInfo: function (userInfo) {
-      return localStorage.getItem(userInfo);
+    getUserInfo: function () {
+      return localStorage.getItem('userInfo');
     },
     // 判断用户是否存在
     isLogin: function () {
-      var userInfoStr = localStorage.getItem('userInfo');
-      if (!userInfoStr || Date.now() - JSON.parse(userInfoStr).loginTime > 1000000) {
+      var userInfoStr = $.getLocalStorage('userInfo');
+      if (!userInfoStr || Date.now() - JSON.parse(userInfoStr).loginTime > 10000000) {
         return false;
       } else {
         return true;
       }
     },
     // 设置当前页面的路径存放会话缓存
-    setPageUrl: function (pageUrl) {
-      sessionStorage.setItem('pageUrl', pageUrl)
+    setPageUrl: function () {
+      sessionStorage.setItem('pageUrl', location.href)
     },
     // 获取当前页面的路径
     getPageUrl: function () {
       return sessionStorage.getItem('pageUrl');
     }
   })
+  // zepto 拦截器
+  function ajaxSet() {
+    // 定义公共路径
+    // var BaseUrl = 'http://api.pyg.ak48.xyz/api/public/v1/';
+    var BaseUrl = 'http://api.pyg.ak48.xyz/';
+    // 在template里面导入变量
+    // template.defaults.imports.log=console.log;
+    if (window.template) { //加上 window可以解决报错，虽然是未定义
+      template.defaults.imports.imgurl = BaseUrl;
+    }
+    // zepto 拦截器 在发送请求前被调用
+    $.ajaxSettings.beforeSend = function (xhr, obj) {
+      console.log(xhr);
+      // return;
+      // 根据获取到的数据,拼接接口路径
+      obj.url = BaseUrl + 'api/public/v1/' + obj.url;
+      if (obj.url.indexOf('my') != -1) {
+        xhr.setRequestHeader('Authorization', JSON.parse($.getUserInfo()).token)
+      }
+      // 正在等待
+      $('body').addClass('looding');
+    }
+    // zepto 拦截器 在发送请求结束后被调用
+    $.ajaxSettings.complete = function () {
+      $('body').removeClass('looding');
+    }
+  }
+
+
+
 
 
 

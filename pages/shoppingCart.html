@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="../css/shoppingCart.css">
 </head>
 
-<body>
+<body id="pyg_body">
   <!-- 头部tab栏 -->
   <header class="mui-bar mui-bar-nav pyg_header">
     <!-- <a href="javascript:;" class="mui-icon mui-icon-left-nav mui-pull-left"></a> -->
@@ -41,8 +41,8 @@
       <ul class="mui-table-view total_price_wrap">
         <li class="mui-table-view-cell">
           <a class="mui-navigate-right">
-            <span class="totalPrice">总价: ￥2799</span>
-            <span class="makeOrder">生成订单</span>
+            <span class="totalPrice">总价:<span class="price_wrap">￥0000</span></span>
+            <span class="makeOrder mui-btn-outlined mui-btn-blue mui-btn">生成订单</span>
           </a>
         </li>
       </ul>
@@ -50,15 +50,8 @@
     <!-- 订单 -->
     <div class="pyg_order">
       <div class="order_title">订单</div>
-      <ul class="mui-table-view mui-table-view-chevron order_wrap">
-        <li class="mui-table-view-cell mui-media">
-          <a class="mui-navigate-right">
-            <img class="mui-media-object mui-pull-left" src="../images/cbd.jpg">
-            <div class="mui-media-body" id="order_info">
-              <p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>￥2799
-            </div>
-          </a>
-        </li>
+      <ul class="pyg_order_wrap">
+
       </ul>
     </div>
   </div>
@@ -83,7 +76,31 @@
   </footer>
 </body>
 <!-- 模板引擎 -->
-
+<script type="text/template" id="orderTpl">
+  {{each data val key}}
+  <li data-goods="{{val}}">
+      <div class="ow_left">
+        <div class="mui-input-row mui-checkbox" id="checkBtn_wrap">
+          <input class="checkBtn" name="checkbox" value="Item 1" type="checkbox">
+        </div>
+        <div class="goods_img "><img src="{{val.goods_small_logo}}" alt=""></div>
+      </div>
+      <div class="ow_right">
+        <div class="pyg_goods_name">{{val.goods_name}}</div>
+        <div class="pyg_goods_price_wrap">
+          <div class="goods_price">￥{{val.goods_price}}</div>
+          <div class="mui-numbox num_wrap" data-numbox-min="1" data-numbox-max="">
+            <!-- "-"按钮，点击可减小当前数值 -->
+            <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+            <input class="mui-numbox-input" type="number" value="{{val.amount}}"/>
+            <!-- "+"按钮，点击可增大当前数值 -->
+            <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+          </div>
+        </div>
+      </div>
+    </li>
+  {{/each}}
+</script>
 <!-- 模板引擎 -->
 <!-- 引用zepto mui 插件的js文件 -->
 <script src="../lib/zepto/zepto.js"></script>

@@ -43,11 +43,11 @@ $(function () {
             type: 'div'
           });
           // var pageUrl = sessionStorage.getItem('pageUrl');
-          var pageUrl = $.getPageUrl();
-          console.log(pageUrl);
+          // var pageUrl = $.getPageUrl();
+          // console.log(pageUrl);
           // 判断是否存在跳转过来页面的路径,如果有,则跳转回去,否则跳转到首页
-          if (pageUrl) {
-            location.href = pageUrl;
+          if ($.getPageUrl()) {
+            location.href = $.getPageUrl();
           } else {
             location.href = '../index.html';
           }

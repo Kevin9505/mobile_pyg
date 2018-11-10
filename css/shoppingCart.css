@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html,
 body {
   height: 100%;
@@ -160,8 +161,11 @@ img {
           align-items: center;
 }
 
-.pyg_view .pyg_total_price .total_price_wrap li a .makeOrder {
-  margin-right: 20px;
+.pyg_view .pyg_total_price .total_price_wrap li a .totalPrice .price_wrap {
+  color: #f70000;
+  margin-left: 5px;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .pyg_view .pyg_order {
@@ -174,7 +178,125 @@ img {
   margin-bottom: 5px;
 }
 
-.pyg_view .pyg_order .order_wrap li #order_info::after {
-  content: '';
+.pyg_view .pyg_order .pyg_order_wrap {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.pyg_view .pyg_order .pyg_order_wrap li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #c8c7cc;
+  background-color: #fff;
+}
+
+.pyg_view .pyg_order .pyg_order_wrap li .ow_left {
+  overflow: hidden;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 3px;
+}
+
+.pyg_view .pyg_order .pyg_order_wrap li .ow_left #checkBtn_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.pyg_view .pyg_order .pyg_order_wrap li .ow_left #checkBtn_wrap .checkBtn {
+  left: 0px;
+  top: 20px;
+}
+
+.pyg_view .pyg_order .pyg_order_wrap li .ow_left .goods_img {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.pyg_view .pyg_order .pyg_order_wrap li .ow_right {
+  -webkit-box-flex: 4;
+      -ms-flex: 4;
+          flex: 4;
+  padding-left: 5px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.pyg_view .pyg_order .pyg_order_wrap li .ow_right .pyg_goods_name {
+  font-size: 14px;
+  height: 45px;
+  overflow: hidden;
+  color: #666;
+}
+
+.pyg_view .pyg_order .pyg_order_wrap li .ow_right .pyg_goods_price_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.pyg_view .pyg_order .pyg_order_wrap li .ow_right .pyg_goods_price_wrap .goods_price {
+  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #f70000;
+}
+
+body {
+  display: none;
+}
+
+/* 控制按钮的隐藏 */
+#pyg_body #pyg_delete,
+#pyg_body #checkBtn_wrap,
+#pyg_body .num_wrap {
+  display: none;
+}
+
+/* 控制按钮的显示 */
+#pyg_body.edit #pyg_delete,
+#pyg_body.edit #checkBtn_wrap,
+#pyg_body.edit .num_wrap {
+  display: block;
 }
 /*# sourceMappingURL=shoppingCart.css.map */

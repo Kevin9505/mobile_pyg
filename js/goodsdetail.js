@@ -46,7 +46,7 @@ $(function () {
       // var userInfoStr = localStorage.getItem('userInfo');
       // var userInfoStr = $.getUserInfo();
       // console.log(JSON.parse(userInfoStr).loginTime);
-
+      // console.log($.getLocalStorage('userInfo'));
       if (!$.isLogin()) {
         mui.toast('请先登录', {
           duration: 'long',
@@ -54,7 +54,7 @@ $(function () {
         })
         // 将当前页面的路劲存放在会话缓存中,方便后面登录判断所返回的页面
         // sessionStorage.setItem('pageUrl', location.href)
-        $.setPageUrl(location.href)
+        $.setPageUrl()
         // 1秒后跳转到登录页面
         setTimeout(function () {
           location.href = './login.html';
@@ -71,44 +71,67 @@ $(function () {
           goods_small_logo: GoodsInfo.goods_small_logo,
           goods_weight: GoodsInfo.goods_weight
         }
-        //将商品信息转为json字符串
+        // console.log(info);
+        // 将商品信息转为json字符串
         var infoStr = JSON.stringify(info);
         // 获取用户的token
         // var aa = $.getUserInfo('userInfo');
         // console.log(aa);
-        var userToken = JSON.parse($.getUserInfo('userInfo')).token;
+        // var userToken = JSON.parse($.getUserInfo('userInfo')).token;
         // console.log(JSON.parse(userInfoStr).token);
         /**因为当前的接口必须在请求头里,添加token,$.post()没有办法添加;data:只是放正常的业务流程的参数  headers: 一般是存放 登录 凭证相关 */
         // 发送请求
-        $.ajax({
-          type: 'post',
-          url: 'my/cart/add',
-          data: {
-            info: infoStr
-          },
-          headers: { //请求头
-            Authorization: userToken
-          },
-          success: function (res) {
-            console.log(res);
-            if (res.meta.status == 200) {
-              mui.confirm('添加成功，跳转到购物车页面?', '温馨提示', ['跳转', '取消'], function (type) {
-                if (type.index == 0) {
-                  setTimeout(function () {
-                    location.href = './shoppingCart.html'
-                  }, 1000)
-                } else {
-                  console.log('取消');
-                }
-              })
-            } else {
-              mui.toast(res.meta.msg, {
-                duration: 'long',
-                type: 'div'
-              })
-            }
+        $.post('my/cart/add', {
+          info:infoStr
+        }, function (res) {
+          // console.log(res);
+          console.log(res);
+          if (res.meta.status == 200) {
+            mui.confirm('添加成功，跳转到购物车页面?', '温馨提示', ['跳转', '取消'], function (type) {
+              if (type.index == 0) {
+                setTimeout(function () {
+                  location.href = './shoppingCart.html'
+                }, 1000)
+              } else {
+                console.log('取消');
+              }
+            })
+          } else {
+            mui.toast(res.meta.msg, {
+              duration: 'long',
+              type: 'div'
+            })
           }
         })
+        // $.ajax({
+        //   type: 'post',
+        //   url: 'my/cart/add',
+        //   data: {
+        //     info: infoStr
+        //   },
+        //   headers: { //请求头
+        //     Authorization: userToken
+        //   },
+        //   success: function (res) {
+        //     console.log(res);
+        //     if (res.meta.status == 200) {
+        //       mui.confirm('添加成功，跳转到购物车页面?', '温馨提示', ['跳转', '取消'], function (type) {
+        //         if (type.index == 0) {
+        //           setTimeout(function () {
+        //             location.href = './shoppingCart.html'
+        //           }, 1000)
+        //         } else {
+        //           console.log('取消');
+        //         }
+        //       })
+        //     } else {
+        //       mui.toast(res.meta.msg, {
+        //         duration: 'long',
+        //         type: 'div'
+        //       })
+        //     }
+        //   }
+        // })
       }
     })
   }
