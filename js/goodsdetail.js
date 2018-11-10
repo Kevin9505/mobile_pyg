@@ -11,6 +11,7 @@ $(function () {
     getGoodsDetail(goods_id)
     // 添加到购物车
     addCart();
+    // console.log($.isLogin());
   }
 
   // 获取商品的数据
@@ -42,16 +43,18 @@ $(function () {
   function addCart() {
     $('.pyg_addCart').on('tap', function () {
       // 点击加入购物车后,先判断是否已经登录了,从本地存储中获取信息,从而判断是否登录
-      var userInfoStr = localStorage.getItem('userInfo');
+      // var userInfoStr = localStorage.getItem('userInfo');
+      // var userInfoStr = $.getUserInfo();
       // console.log(JSON.parse(userInfoStr).loginTime);
 
-      if (!userInfoStr || Date.now() - JSON.parse(userInfoStr).loginTime > 1000000) {
+      if (!$.isLogin()) {
         mui.toast('请先登录', {
           duration: 'long',
           type: 'div'
         })
         // 将当前页面的路劲存放在会话缓存中,方便后面登录判断所返回的页面
-        sessionStorage.setItem('pageUrl', location.href)
+        // sessionStorage.setItem('pageUrl', location.href)
+        $.setPageUrl(location.href)
         // 1秒后跳转到登录页面
         setTimeout(function () {
           location.href = './login.html';
@@ -71,7 +74,9 @@ $(function () {
         //将商品信息转为json字符串
         var infoStr = JSON.stringify(info);
         // 获取用户的token
-        var userToken = JSON.parse(userInfoStr).token;
+        // var aa = $.getUserInfo('userInfo');
+        // console.log(aa);
+        var userToken = JSON.parse($.getUserInfo('userInfo')).token;
         // console.log(JSON.parse(userInfoStr).token);
         /**因为当前的接口必须在请求头里,添加token,$.post()没有办法添加;data:只是放正常的业务流程的参数  headers: 一般是存放 登录 凭证相关 */
         // 发送请求

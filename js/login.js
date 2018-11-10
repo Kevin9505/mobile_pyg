@@ -36,12 +36,14 @@ $(function () {
           res.data.loginTime = Date.now();
           // console.log(res);
           // 将登录成功后返回的用户数据存储在本地永久缓存中
-          localStorage.setItem('userInfo', JSON.stringify(res.data));
+          /* localStorage.setItem('userInfo', JSON.stringify(res.data)); */
+          $.setUserInfo(res.data);
           mui.toast(res.meta.msg, {
             duration: 'long',
             type: 'div'
           });
-          var pageUrl = sessionStorage.getItem('pageUrl');
+          // var pageUrl = sessionStorage.getItem('pageUrl');
+          var pageUrl = $.getPageUrl();
           console.log(pageUrl);
           // 判断是否存在跳转过来页面的路径,如果有,则跳转回去,否则跳转到首页
           if (pageUrl) {

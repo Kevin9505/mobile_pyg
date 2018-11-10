@@ -20,10 +20,11 @@ $(function () {
         categoriesData = res.data;
         // 由于数据量过大,为了增强用户的体验,需设置本地缓存,在第一次加载数据后,缓存到本地,再次请求时,先判断是否有本地缓存,如果没有再发送请求,获取数据
         // 数据一回来就设置本地缓存
-        localStorage.setItem('cateData', JSON.stringify({
+        /* localStorage.setItem('cateData', JSON.stringify({
           data: categoriesData,
           time: Date.now()
-        }));
+        })); */
+        $.setLocalStorage(categoriesData);
         // 渲染数据
         console.log('发送请求');
         getLeftCate();
@@ -99,7 +100,8 @@ $(function () {
 
   // 二次渲染数据,先判断本地缓存中是否存在,如果不存在,在发送请求获取
   function getLocalStorage() {
-    var localStorageDataStr = localStorage.getItem('cateData')
+    // var localStorageDataStr = localStorage.getItem('cateData')
+    var localStorageDataStr = $.getLocalStorage('cateData')
     // console.log(localStorageData);
     // 如果没有本地缓存,则发送请求获取数据
     if (!localStorageDataStr) {

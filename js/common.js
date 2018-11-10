@@ -76,6 +76,42 @@ $(function () {
       } else {
         return true;
       }
+    },
+    // 设置分类本地永久缓存
+    setLocalStorage: function (storage) {
+      localStorage.setItem('cateData', JSON.stringify({
+        data: storage,
+        time: Date.now()
+      }));
+    },
+    // 获取分类本地永久缓存
+    getLocalStorage: function (cateData) {
+      return localStorage.getItem(cateData);
+    },
+    // 设置用户信息本地缓存
+    setUserInfo: function (userData) {
+      localStorage.setItem('userInfo', JSON.stringify(userData));
+    },
+    // 获取用户信息本地缓存
+    getUserInfo: function (userInfo) {
+      return localStorage.getItem(userInfo);
+    },
+    // 判断用户是否存在
+    isLogin: function () {
+      var userInfoStr = localStorage.getItem('userInfo');
+      if (!userInfoStr || Date.now() - JSON.parse(userInfoStr).loginTime > 1000000) {
+        return false;
+      } else {
+        return true;
+      }
+    },
+    // 设置当前页面的路径存放会话缓存
+    setPageUrl: function (pageUrl) {
+      sessionStorage.setItem('pageUrl', pageUrl)
+    },
+    // 获取当前页面的路径
+    getPageUrl: function () {
+      return sessionStorage.getItem('pageUrl');
     }
   })
 
