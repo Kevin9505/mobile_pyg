@@ -97,7 +97,7 @@
         <ul>
           {{each val1.goods val2}}
           <li>
-            <a href="javascript:;">
+            <a class="gobackIndex" href="./pages/goodsdetail.html?goods_id={{val2.goods_id}}">
               <div class="goodslist_img">
                 <img src="{{val2.goods_small_logo}}"
                   alt="">
@@ -107,7 +107,7 @@
               </div>
               <div class="goodslist_price">￥{{val2.goods_price}}</div>
             </a>
-            <a class="mui-btn mui-btn-primary mui-btn-outlined" href="javascript:;">找相似</a>
+            <a class="findsimilar mui-btn mui-btn-primary mui-btn-outlined" href="./pages/goodslist.html?cid={{val2.cat_id}}">找相似</a>
           </li>
           {{/each}}
         </ul>

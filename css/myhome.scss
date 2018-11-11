@@ -15,20 +15,25 @@
       display: flex;
 
       li {
+        display: flex;
         flex: 1;
-        padding: 8px 0;
-        text-align: center;
-        color: #007aff;
 
-        span {
-          font-size: 20px;
-        }
-
-        p {
-          padding: 0px;
-          margin: 0px;
+        a {
+          flex: 1;
+          padding: 8px 0;
+          text-align: center;
           color: #007aff;
-          font-size: 14px;
+
+          span {
+            font-size: 20px;
+          }
+
+          p {
+            padding: 0px;
+            margin: 0px;
+            color: #007aff;
+            font-size: 14px;
+          }
         }
       }
     }

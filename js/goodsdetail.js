@@ -5,8 +5,10 @@ $(function () {
 
   function init() {
     var goods_id = $.getUrlVal('goods_id');
-    var Cid = $.getUrlVal('cid');
-    $('.goback')[0].href = './goodslist.html?cid=' + Cid;
+    // var Cid = $.getUrlVal('cid');
+    // $('.goback')[0].href = './goodslist.html?cid=' + Cid;
+    $('.goback')[0].href = $.getPageUrl();
+    // $.getPageUrl()
     // 获取商品信息
     getGoodsDetail(goods_id)
     // 添加到购物车
@@ -82,7 +84,7 @@ $(function () {
         /**因为当前的接口必须在请求头里,添加token,$.post()没有办法添加;data:只是放正常的业务流程的参数  headers: 一般是存放 登录 凭证相关 */
         // 发送请求
         $.post('my/cart/add', {
-          info:infoStr
+          info: infoStr
         }, function (res) {
           // console.log(res);
           console.log(res);

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>登录</title>
+  <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+  <link rel="stylesheet" href="../lib/mui/css/mui.css">
+  <link rel="stylesheet" href="../css/order.css">
+</head>
+
+<body>
+  <!-- 头部tab栏 -->
+  <header class="mui-bar mui-bar-nav pyg_header">
+    <a href="javascript:;" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title">订单管理</h1>
+  </header>
+  <!-- 主要内容区 -->
+  <div class="pyg_view">
+    <div class="mui-content">
+      <div class="order_title_wrap">
+        <div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-primary">
+          <a class="mui-control-item mui-active" href="#item1">全部</a>
+          <a class="mui-control-item" href="#item2">代付款</a>
+          <a class="mui-control-item" href="#item3">待收货</a>
+        </div>
+      </div>
+      <div class="order_content_wrap">
+        <div id="item1" class="mui-control-content mui-active">
+          <ul class="order_content">
+            <li>
+              <div class="content_left">
+                <div class="order_number_name">订单编号</div>
+                <div class="order_number">GD20181111000000000759</div>
+              </div>
+              <div class="content_right">
+                <div class="order_price">￥4999</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div id="item2" class="mui-control-content">
+          在开发中...
+        </div>
+        <div id="item3" class="mui-control-content">
+          在开发中...
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 底部导航条 -->
+  <footer class="pyg_footerBar">
+    <a href="../index.html">
+      <span class="fa fa-home"></span>
+      <div>首页</div>
+    </a>
+    <a href="./categories.html">
+      <span class="fa fa-list-ul"></span>
+      <div>分类</div>
+    </a>
+    <a href="./shoppingCart.html">
+      <span class="fa fa-shopping-cart"></span>
+      <div>购物车</div>
+    </a>
+    <a class="active" href="./myhome.html">
+      <span class="fa fa-user-circle-o"></span>
+      <div>我的</div>
+    </a>
+  </footer>
+</body>
+<!-- 模板引擎 -->
+
+<!-- 模板引擎 -->
+<!-- 引用zepto mui 插件的js文件 -->
+<script src="../lib/zepto/zepto.js"></script>
+<script src="../lib/mui/js/mui.js"></script>
+<script src="../lib/arttemplate/template-web.js"></script>
+<!-- <script src="../lib/iscroll/iscroll.js"></script> -->
+<script src="../js/common.js"></script>
+<script src="../js/order.js"></script>
+
+</html>

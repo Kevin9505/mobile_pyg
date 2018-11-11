@@ -1,0 +1,82 @@
+@import "_common.scss";
+
+/* 内容区 */
+.pyg_view {}
+
+.mui-content {
+
+  .order_title_wrap {
+    background-color: #fff;
+    padding: 0;
+
+    // #segmentedControl {
+    //   a {}
+    // }
+  }
+
+  .order_content_wrap {
+    padding: 0 20px;
+    margin-top: 20px;
+
+
+    .mui-control-content {
+      background-color: #fff;
+
+      &::before {
+        content: '';
+        height: 1px;
+        width: 100%;
+        background-color: #e6e6e6;
+        display: block;
+      }
+
+      .order_content {
+        @include ul_reset();
+
+        li {
+          display: flex;
+          padding: 10px 10px;
+          position: relative;
+
+
+          .content_left {
+            flex: 5;
+
+            .order_number_name {
+              font-size: 18px;
+              color: #222222;
+            }
+
+            .order_number {
+              padding-top: 4px;
+              font-size: 16px;
+              color: #535353;
+            }
+          }
+
+          .content_right {
+            flex: 2;
+
+            .order_price {
+              color: #f70000;
+              font-size: 18px;
+              font-weight: 600;
+            }
+          }
+
+          &::after {
+            content: '';
+            height: 1px;
+            width: 95%;
+            background-color: #c5c5c5;
+            display: block;
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            transform: translateX(-50%)
+          }
+        }
+      }
+    }
+  }
+}

@@ -4,7 +4,8 @@ $(function () {
   function init() {
     getSwiperdata();
     getCatitems();
-    getGoodslist()
+    getGoodslist();
+
   }
 
   // 获取轮播图数据
@@ -49,12 +50,16 @@ $(function () {
     $.get('home/goodslist', function (res) {
       // 判断是否是否成功返回
       if (res.meta.status == 200) {
-        // console.log(res.data)
+        console.log(res.data)
         // 渲染商品列表数据
         var html = template('goodslistTpl', {
           data: res.data
         });
         $('.pyg_goodslist').html(html);
+        // 设置返回首页的路径
+        $('.gobackIndex').on('tap', function () {
+          $.setPageUrl();
+        })
       } else {
         console.log('数据请求失败');
       }

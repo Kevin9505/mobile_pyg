@@ -112,6 +112,15 @@ img {
 }
 
 .pyg_view .order .pyg_order_items li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.pyg_view .order .pyg_order_items li a {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -120,11 +129,11 @@ img {
   color: #007aff;
 }
 
-.pyg_view .order .pyg_order_items li span {
+.pyg_view .order .pyg_order_items li a span {
   font-size: 20px;
 }
 
-.pyg_view .order .pyg_order_items li p {
+.pyg_view .order .pyg_order_items li a p {
   padding: 0px;
   margin: 0px;
   color: #007aff;

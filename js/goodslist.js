@@ -89,7 +89,7 @@ $(function () {
     $('.pyg_goodItems').on('tap', 'a', function () {
       var href = this.href;
       // console.log(href);
-      // $.setPageUrl(href)
+      $.setPageUrl(href)
       location.href = href;
     })
   }
