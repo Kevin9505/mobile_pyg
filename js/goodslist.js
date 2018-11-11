@@ -63,7 +63,7 @@ $(function () {
   function getSearchData(callback) {
     // 发送请求 http://api.pyg.ak48.xyz/api/public/v1/goods/search
     $.get('goods/search', data, function (res) {
-      console.log(res)
+      console.log(data)
       // 计算总页数
       totalPage = Math.ceil(res.data.total / data.pagesize);
       // 判断数据是否回来,回来后调用模板
@@ -86,11 +86,59 @@ $(function () {
   // 1 触发tap的点击事件,获取被点击的标签的href
   // 2 通过js的方式跳转  location.href=被点击的a表的href
   function eventTap() {
+    // 跳转到商品详情页
     $('.pyg_goodItems').on('tap', 'a', function () {
       var href = this.href;
       // console.log(href);
       $.setPageUrl(href)
       location.href = href;
     })
-  }
+
+    // 点击搜索功能
+    $('.searchBtn').on('tap', function () {
+      // 获取搜索框内的值
+      var searchValue = $('.goodSearch').val();
+      // console.log(searchValue);
+      // 判断用户输入是否为空
+      if (searchValue == '' && searchValue.trim() == '') {
+        mui.toast('您还没有输入内容哦', {
+          duration: 'long',
+          type: 'div'
+        })
+        return;
+      }
+      // 改造数据，发送请求
+      // data.query = searchValue;
+      data = {
+        query: searchValue,
+        currentPagenum: 1,
+        pagesize: 10,
+        cid: ''
+      }
+      // console.log(data);
+      getSearchData(function (html) {
+        // 数据第一次加载
+        $('.pyg_goodItems').html(html);
+      })
+
+    }) //end 点击搜索功能
+
+    // 点击刷新
+    $('.reload').on('tap', function () {
+      // console.log(1);
+      data = {
+        query: '',
+        currentPagenum: 1,
+        pagesize: 10,
+        cid: $.getUrlVal('cid')
+      }
+      getSearchData(function (html) {
+        // 数据第一次加载
+        $('.pyg_goodItems').html(html);
+      })
+    }) //end 点击刷新
+
+  } //end eventTap()
+
+
 })
