@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>登录</title>
+  <title>订单管理</title>
   <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
   <link rel="stylesheet" href="../lib/mui/css/mui.css">
   <link rel="stylesheet" href="../css/order.css">
@@ -22,30 +22,26 @@
     <div class="mui-content">
       <div class="order_title_wrap">
         <div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-primary">
-          <a class="mui-control-item mui-active" href="#item1">全部</a>
-          <a class="mui-control-item" href="#item2">代付款</a>
-          <a class="mui-control-item" href="#item3">待收货</a>
+          <a id="allOrder" class="mui-control-item mui-active" href="#item1">全部</a>
+          <a id="payment" class="mui-control-item" href="#item2">待付款</a>
+          <a id="collect" class="mui-control-item" href="#item3">待收货</a>
         </div>
       </div>
       <div class="order_content_wrap">
         <div id="item1" class="mui-control-content mui-active">
           <ul class="order_content">
-            <li>
-              <div class="content_left">
-                <div class="order_number_name">订单编号</div>
-                <div class="order_number">GD20181111000000000759</div>
-              </div>
-              <div class="content_right">
-                <div class="order_price">￥4999</div>
-              </div>
-            </li>
+
           </ul>
         </div>
         <div id="item2" class="mui-control-content">
+          <!-- <ul class="order_content"> -->
           在开发中...
+          <!-- </ul> -->
         </div>
         <div id="item3" class="mui-control-content">
+          <!-- <ul class="order_content"> -->
           在开发中...
+          <!-- </ul> -->
         </div>
       </div>
     </div>
@@ -71,7 +67,19 @@
   </footer>
 </body>
 <!-- 模板引擎 -->
-
+<script type="text/template" id="orderId">
+  {{each data val}}
+  <li>
+    <div class="content_left">
+      <div class="order_number_name">订单编号</div>
+      <div class="order_number">{{val.order_number}}</div>
+    </div>
+    <div class="content_right">
+      <div class="order_price">￥{{val.order_price}}</div>
+    </div>
+  </li>
+  {{/each}}
+</script>
 <!-- 模板引擎 -->
 <!-- 引用zepto mui 插件的js文件 -->
 <script src="../lib/zepto/zepto.js"></script>
