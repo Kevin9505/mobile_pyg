@@ -71,11 +71,13 @@
           align-items: center;
 
           .totalPrice {
+            span {
+              color: #f70000;
+            }
 
             .price_wrap {
-              color: #f70000;
               margin-left: 5px;
-              font-size: 16px;
+              font-size: 20px;
               font-weight: 600;
             }
           }

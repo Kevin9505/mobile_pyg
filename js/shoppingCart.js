@@ -73,7 +73,7 @@ $(function () {
       totalPrice += goodPrice * unitPreice;
     }
     // console.log(totalPrice);
-    $('.price_wrap').text('￥' + totalPrice);
+    $('.price_wrap').text(totalPrice);
   }
 
 
@@ -117,6 +117,60 @@ $(function () {
       // console.log($activeLis);
       // 调用同步数据库函数
       syncCart($activeLis)
+    })
+
+    // 点击生成订单
+    $('.makeOrder').on('tap', function () {
+      // console.log(2);
+      var $orderLis = $('.pyg_order_wrap li')
+      if ($orderLis.length == 0) {
+        mui.toast('您还没购买商品哦', {
+          duration: 'long',
+          type: 'div'
+        });
+        return;
+      }
+      // 构造数据
+      var orderData = {
+        order_price: $('.price_wrap').text(),
+        consignee_addr: $('.mui-ellipsis').text(),
+        goods: []
+      }
+
+
+      for (var i = 0; i < $orderLis.length; i++) {
+        var temObj = {}
+        var li = $orderLis[i];
+        // 获取每个li上的数据
+        var obj = $(li).data('goods');
+        // console.log(obj);
+        var temObj = {
+          goods_id: obj.goods_id,
+          goods_number: $(li).find('.mui-numbox-input').val(),
+          goods_price: obj.goods_price
+        }
+        // temObj.goods_id = obj.goods_id;
+        // temObj.goods_number = $(li).find('.mui-numbox-input').val();
+        // console.log($(li).find('.mui-numbox-input').val());
+        // temObj.goods_price = obj.goods_price;
+        orderData.goods.push(temObj);
+        // console.log(orderData);
+      }
+      // console.log(orderData);
+      $.post('my/orders/create', orderData, function (res) {
+        // console.log(res);
+        if (res.meta.status == 200) {
+          mui.toast(res.meta.msg, {
+            duration: 'long',
+            type: 'div'
+          });
+        } else {
+          mui.toast(res.meta.msg, {
+            duration: 'long',
+            type: 'div'
+          });
+        }
+      })
     })
 
   }

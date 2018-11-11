@@ -161,10 +161,13 @@ img {
           align-items: center;
 }
 
-.pyg_view .pyg_total_price .total_price_wrap li a .totalPrice .price_wrap {
+.pyg_view .pyg_total_price .total_price_wrap li a .totalPrice span {
   color: #f70000;
+}
+
+.pyg_view .pyg_total_price .total_price_wrap li a .totalPrice .price_wrap {
   margin-left: 5px;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
 }
 
