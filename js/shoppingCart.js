@@ -164,6 +164,10 @@ $(function () {
             duration: 'long',
             type: 'div'
           });
+          $.setPageUrl();
+          setTimeout(function () {
+            location.href = './order.html'
+          }, 1000)
         } else {
           mui.toast(res.meta.msg, {
             duration: 'long',

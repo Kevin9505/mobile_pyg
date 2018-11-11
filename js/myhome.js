@@ -28,8 +28,9 @@ $(function () {
     })
   }
 
-  // 退出登录
+
   function eventList() {
+    // 退出登录
     $('.logout a').on('tap', function () {
       // console.log(1);
       mui.confirm('您确定要退出登录吗?', '温馨提醒', ['取消', '确认'], function (etype) {
@@ -38,6 +39,10 @@ $(function () {
           location.href = './login.html'
         }
       });
+    })
+    // 设置返回路径
+    $('.pyg_order_items').on('tap', function () {
+      $.setPageUrl();
     })
   }
 

@@ -2,7 +2,7 @@ $(function () {
   init();
 
   function init() {
-    // eventList()
+    eventList()
     getOrder($.getUrlVal('type'));
     // console.log($.getUrlVal('type'));
   }
@@ -23,7 +23,11 @@ $(function () {
 
   // 判断是哪个页面
   function eventList() {
-    if ($.getUrlVal('type') == '1') {
+    $('.goBack').on('tap', function () {
+      location.href = $.getPageUrl();
+    })
+
+    /* if ($.getUrlVal('type') == '1') {
       $('#allOrder').addClass('mui-active').siblings().removeClass('mui-active');
       getOrder($.getUrlVal('type'));
 
@@ -35,7 +39,7 @@ $(function () {
       $('#collect').addClass('mui-active').siblings().removeClass('mui-active');
       getOrder($.getUrlVal('type'));
 
-    }
+    } */
   }
 
 
