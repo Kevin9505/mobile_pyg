@@ -2,7 +2,17 @@ $(function () {
   init();
 
   function init() {
-    getLogin();
+    // if (!$.isLogin()) {
+    //   mui.toast('您还没登录呢', {
+    //     duration: 'long',
+    //     type: 'div'
+    //   });
+      getLogin();
+    //   return;
+    // } else {
+
+    //   location.href = './myhome.html'
+    // }
   }
 
   function getLogin() {
