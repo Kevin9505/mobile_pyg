@@ -100,10 +100,11 @@ $(function () {
     }
     // zepto 拦截器 在发送请求前被调用
     $.ajaxSettings.beforeSend = function (xhr, obj) {
-      console.log(xhr);
+      // console.log(xhr);
       // return;
       // 根据获取到的数据,拼接接口路径
       obj.url = BaseUrl + 'api/public/v1/' + obj.url;
+      // 设置请求头
       if (obj.url.indexOf('my') != -1) {
         xhr.setRequestHeader('Authorization', JSON.parse($.getUserInfo()).token)
       }

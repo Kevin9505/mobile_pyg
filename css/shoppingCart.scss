@@ -184,8 +184,7 @@ body {
 #pyg_body {
 
   #pyg_delete,
-  #checkBtn_wrap,
-  .num_wrap {
+  #checkBtn_wrap {
     display: none;
   }
 }
@@ -194,8 +193,7 @@ body {
 #pyg_body.edit {
 
   #pyg_delete,
-  #checkBtn_wrap,
-  .num_wrap {
+  #checkBtn_wrap {
     display: block;
   }
 }
