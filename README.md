@@ -1,10 +1,12 @@
 # mobile_pyg
 #### 扩展zepto 为  $ 对象增加自定义方法 如 可以这样使用 $.show();
+```js
 $.extend($, {
   show: function () {
     $("body").addClass("waitting");
   }
 });
+```
 #### 优化分类页面图片路径
 利用art-template的模板变量
 template.defaults.imports.imgurl=BaseUrl; 
@@ -52,6 +54,7 @@ var obj={};
 + 使用href来跳转
   - window.location.href='路径';
 #### 获取url上的键值对
+```js
 function getQueryString(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
     var r = window.location.search.substr(1).match(reg);
@@ -59,7 +62,9 @@ function getQueryString(name) {
     return null;
 }
 // 获取http://baidu.com/id=1 p的值  ---->  getQueryString(p)  输出1
+```
 #### 验证邮箱
+```js
 function checkEmail(myemail) {
     // 规则
     var myReg = /^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
@@ -70,7 +75,9 @@ function checkEmail(myemail) {
         return false;
     }
 }
+```
 #### 验证手机号码
+```js
 function checkPhone(phone) {
     if (!(/^1[34578]\d{9}$/.test(phone))) {
         return false;
@@ -78,8 +85,10 @@ function checkPhone(phone) {
         return true;
     }
 }
+```
 #### 正在等待效果
   + 基于font-awesome的正在等待效果
+```html
 .loadding {
   &::before {
     position: fixed;
@@ -105,7 +114,9 @@ function checkPhone(phone) {
     animation: fa-spin 1s infinite linear;
   }
 }
+```
 #### mui插件使用经验
+```html
 + mui上拉刷新下拉加载
   - HTML
   //  lt_view 为下拉-上拉的容器  里面必须加一层嵌套 div   
@@ -160,6 +171,6 @@ function checkPhone(phone) {
 
   // 重置 组件
   mui('.lt_view').pullRefresh().refresh(true);
-
+```
 
 
